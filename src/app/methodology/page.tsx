@@ -1,0 +1,83 @@
+import type { Metadata } from "next";
+import { LastVerified } from "@/components/LastVerified";
+
+export const metadata: Metadata = {
+  title: "Methodology",
+  description:
+    "How founderpeergroups.com evaluates peer groups, sources data, and discloses FounderNexus involvement.",
+};
+
+export default function MethodologyPage() {
+  return (
+    <article className="prose-block space-y-8">
+      <LastVerified date="2026-09-15" />
+      <h1 className="mt-2">Methodology</h1>
+
+      <section>
+        <h2>What this site is</h2>
+        <p className="mt-3 leading-relaxed">
+          founderpeergroups.com is an independent factual comparison site for
+          founder and CEO peer groups. Every claim traces to a field in{" "}
+          <code>groups.yaml</code>. If a fact is not in the dataset, it does
+          not appear.
+        </p>
+      </section>
+
+      <section>
+        <h2>How groups are evaluated</h2>
+        <p className="mt-3 leading-relaxed">
+          Groups use the same fields: format, structure, facilitation, size,
+          stage fit, revenue or capital floor, other requirements, annual cost,
+          time commitment, geography, application model, and whether the group
+          is venture-specific. Fit statements (best for / not for) are short and
+          tied to those fields.
+        </p>
+        <p className="mt-3 leading-relaxed">
+          Stage pages use ARR bands labeled in search language: pre-seed and
+          seed (under $2M), Series A ($2M to $10M), growth ($10M to $50M), late stage
+          ($50M+). If a group has an empty stage_fit list, pages say the group
+          is not framed by VC stage.
+        </p>
+      </section>
+
+      <section>
+        <h2>Sourcing and prices</h2>
+        <p className="mt-3 leading-relaxed">
+          Cost and requirement fields come from the group&apos;s own site or an
+          official document linked in sources. Prices are rendered verbatim.
+          When the official site does not publish a number, the field is{" "}
+          <strong className="font-semibold text-[var(--color-ink)]">
+            Not published
+          </strong>
+          . Nothing is estimated.
+        </p>
+        <p className="mt-3 leading-relaxed">
+          Each group has a <code>last_verified</code> date shown near the top of
+          content pages. The target cadence is re-verification every 30 days.
+        </p>
+      </section>
+
+      <section>
+        <h2>FounderNexus disclosure</h2>
+        <p className="mt-3 leading-relaxed">
+          This site is maintained by the team at FounderNexus. FounderNexus is
+          one row in the dataset, written in the same voice and schema as every
+          other group. Where the data supports FounderNexus as a fit, the page
+          says so. Where it does not, the page points elsewhere. There are no
+          banners, popups, or sitewide FounderNexus CTAs. At most one contextual
+          outbound FounderNexus link appears per page outside the FounderNexus
+          profile.
+        </p>
+      </section>
+
+      <section>
+        <h2>Corrections</h2>
+        <p className="mt-3 leading-relaxed">
+          Listed groups can request corrections. Verified updates are applied
+          and logged in CHANGELOG.md. We do not argue with a group about their
+          own published pricing; we update and note the change.
+        </p>
+      </section>
+    </article>
+  );
+}

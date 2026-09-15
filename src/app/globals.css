@@ -1,0 +1,231 @@
+@import "tailwindcss";
+
+:root {
+  --color-white: #ffffff;
+  --color-page: #f9f9f9;
+  --color-tint: #f1f5f9;
+  --color-ink: #01052a;
+  --color-action: #0072ba;
+  --color-action-hover: #0059a8;
+  --color-muted: #56646f;
+  --color-gray: #929497;
+  --color-border: #e2e8f0;
+  --color-border-strong: #cbd5e1;
+  --radius-btn: 8px;
+  --radius-chip: 6px;
+  --radius-card: 8px;
+  --max-prose: 42rem;
+  --max-content: 60rem;
+  --font-sans: var(--font-plus-jakarta), "Plus Jakarta Sans", sans-serif;
+}
+
+@theme inline {
+  --color-background: var(--color-white);
+  --color-foreground: var(--color-ink);
+  --font-sans: var(--font-sans);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+body {
+  background: var(--color-white);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+  font-weight: 400;
+  font-size: 1rem;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+a {
+  color: inherit;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 2px;
+  transition: color 180ms ease, border-color 180ms ease, background-color 180ms ease;
+}
+
+a:hover {
+  color: var(--color-action);
+}
+
+h1,
+h2,
+h3,
+h4 {
+  color: var(--color-ink);
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  line-height: 1.25;
+}
+
+h1 {
+  font-size: 1.875rem;
+  font-weight: 700;
+}
+
+h2 {
+  font-size: 1.25rem;
+}
+
+h3 {
+  font-size: 1.0625rem;
+}
+
+p {
+  color: var(--color-muted);
+}
+
+code {
+  font-size: 0.875em;
+  background: var(--color-tint);
+  padding: 0.1em 0.35em;
+  border-radius: 4px;
+}
+
+/* Tables: research-publication density */
+table.data-table,
+table.cmp-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.875rem;
+  line-height: 1.45;
+  color: var(--color-ink);
+}
+
+table.data-table thead th,
+table.cmp-table thead th {
+  background: var(--color-tint);
+  color: var(--color-ink);
+  font-weight: 600;
+  text-align: left;
+  padding: 0.625rem 0.75rem;
+  border-bottom: 1px solid var(--color-border-strong);
+  white-space: nowrap;
+}
+
+table.data-table tbody th,
+table.cmp-table tbody th {
+  font-weight: 500;
+  color: var(--color-muted);
+  text-align: left;
+  padding: 0.625rem 0.75rem;
+  border-bottom: 1px solid var(--color-border);
+  background: var(--color-white);
+  white-space: nowrap;
+  vertical-align: top;
+}
+
+table.data-table tbody td,
+table.cmp-table tbody td {
+  padding: 0.625rem 0.75rem;
+  border-bottom: 1px solid var(--color-border);
+  vertical-align: top;
+  color: var(--color-ink);
+}
+
+table.data-table tbody tr:nth-child(even) td,
+table.data-table tbody tr:nth-child(even) th,
+table.cmp-table tbody tr:nth-child(even) td,
+table.cmp-table tbody tr:nth-child(even) th {
+  background: var(--color-page);
+}
+
+table.data-table tbody tr:hover td,
+table.data-table tbody tr:hover th,
+table.cmp-table tbody tr:hover td,
+table.cmp-table tbody tr:hover th {
+  background: var(--color-tint);
+}
+
+.chip {
+  display: inline-block;
+  padding: 0.15rem 0.5rem;
+  border-radius: var(--radius-chip);
+  background: var(--color-tint);
+  color: var(--color-muted);
+  font-size: 0.75rem;
+  font-weight: 500;
+  line-height: 1.4;
+}
+
+.btn-primary {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  border-radius: var(--radius-btn);
+  background: var(--color-action);
+  color: var(--color-white) !important;
+  font-weight: 600;
+  font-size: 0.875rem;
+  text-decoration: none !important;
+  border: none;
+  cursor: pointer;
+  transition: background-color 180ms ease;
+}
+
+.btn-primary:hover {
+  background: var(--color-action-hover);
+  color: var(--color-white) !important;
+}
+
+.card {
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-card);
+  background: var(--color-white);
+  padding: 1rem 1.125rem;
+  transition: border-color 180ms ease;
+}
+
+.card:hover {
+  border-color: var(--color-border-strong);
+}
+
+.verified {
+  font-size: 0.8125rem;
+  color: var(--color-gray);
+  font-weight: 500;
+}
+
+.prose-block {
+  max-width: var(--max-prose);
+}
+
+.site-shell {
+  max-width: var(--max-content);
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1.25rem;
+  padding-right: 1.25rem;
+}
+
+.section-gap {
+  margin-top: 2.5rem;
+}
+
+.link-quiet {
+  color: var(--color-ink);
+  text-decoration: underline;
+  text-decoration-color: var(--color-border-strong);
+}
+
+.link-quiet:hover {
+  color: var(--color-action);
+  text-decoration-color: var(--color-action);
+}
