@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import { FnLink } from "@/components/FnLink";
 import { fnUrl } from "@/lib/utm";
 
 export function Footer() {
@@ -16,12 +17,13 @@ export function Footer() {
           />
           <p className="max-w-2xl leading-relaxed">
             Maintained by the team at{" "}
-            <a
+            <FnLink
               href={fnUrl("/", "footer", "disclosure")}
+              slug="footer"
               className="font-medium text-[var(--color-ink)] underline decoration-[var(--color-border-strong)] hover:text-[var(--color-action)]"
             >
               FounderNexus
-            </a>
+            </FnLink>
             . FounderNexus is one group in the dataset, described with the same
             fields and tone as every other row.
           </p>

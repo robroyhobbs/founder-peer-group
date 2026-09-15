@@ -23,6 +23,7 @@ import {
   type SituationSlug,
   type StageSlug,
 } from "@/lib/types";
+import { FnLink } from "@/components/FnLink";
 import { fnUrl } from "@/lib/utm";
 
 export function generateStaticParams() {
@@ -137,9 +138,9 @@ export default async function BestPage({
                 {showFnLink && g.slug === "foundernexus" && (
                   <>
                     {" "}
-                    <a href={fnUrl("/", "best", slug)} className="link-quiet">
+                    <FnLink href={fnUrl("/", "best", slug)} slug={slug} className="link-quiet">
                       FounderNexus site
-                    </a>
+                    </FnLink>
                   </>
                 )}
               </li>
@@ -230,9 +231,9 @@ export default async function BestPage({
               {showFnLink && g.slug === "foundernexus" && (
                 <>
                   {" "}
-                  <a href={fnUrl("/", "best", slug)} className="link-quiet">
+                  <FnLink href={fnUrl("/", "best", slug)} slug={slug} className="link-quiet">
                     FounderNexus site
-                  </a>
+                  </FnLink>
                 </>
               )}
             </li>
