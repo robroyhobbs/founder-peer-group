@@ -105,8 +105,8 @@ table.data-table,
 table.cmp-table {
   width: 100%;
   border-collapse: collapse;
-  font-size: 0.875rem;
-  line-height: 1.45;
+  font-size: 0.9375rem;
+  line-height: 1.5;
   color: var(--color-ink);
 }
 
@@ -135,10 +135,12 @@ table.cmp-table tbody th {
 
 table.data-table tbody td,
 table.cmp-table tbody td {
-  padding: 0.625rem 0.75rem;
+  padding: 0.75rem 0.875rem;
   border-bottom: 1px solid var(--color-border);
   vertical-align: top;
   color: var(--color-ink);
+  max-width: 22rem;
+  overflow-wrap: anywhere;
 }
 
 table.data-table tbody tr:nth-child(even) td,
@@ -228,4 +230,21 @@ table.cmp-table tbody tr:hover th {
 .link-quiet:hover {
   color: var(--color-action);
   text-decoration-color: var(--color-action);
+}
+
+.sticky-col {
+  position: sticky;
+  left: 0;
+  z-index: 1;
+  background: var(--color-white);
+  box-shadow: 1px 0 0 var(--color-border);
+}
+
+thead .sticky-col {
+  background: var(--color-tint);
+  z-index: 2;
+}
+
+.verified {
+  color: var(--color-muted) !important;
 }

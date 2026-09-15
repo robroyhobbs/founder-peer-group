@@ -79,7 +79,7 @@ export default async function GroupProfilePage({
       <section className="section-gap">
         <h2>Fit snapshot</h2>
         <div className="mt-4">
-          <ComparisonTable groups={[g]} linkNames={false} />
+          <ComparisonTable groups={[g]} linkNames={false} density="core" />
         </div>
       </section>
 

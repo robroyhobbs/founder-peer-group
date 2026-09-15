@@ -2,7 +2,7 @@ import Link from "next/link";
 import type { Group } from "@/lib/types";
 import { stageFitSummary } from "@/lib/data";
 
-const FIELDS: { key: string; label: string; render: (g: Group) => string }[] = [
+const CORE_FIELDS: { key: string; label: string; render: (g: Group) => string }[] = [
   { key: "format", label: "Format", render: (g) => g.format },
   { key: "structure", label: "Structure", render: (g) => g.structure },
   { key: "facilitation", label: "Facilitation", render: (g) => g.facilitation },
@@ -14,21 +14,10 @@ const FIELDS: { key: string; label: string; render: (g: Group) => string }[] = [
     render: (g) => g.revenue_floor.text,
   },
   {
-    key: "other_requirements",
-    label: "Other requirements",
-    render: (g) => g.other_requirements.text,
-  },
-  {
     key: "annual_cost",
     label: "Annual cost",
     render: (g) => g.annual_cost.text,
   },
-  {
-    key: "time_commitment",
-    label: "Time commitment",
-    render: (g) => g.time_commitment,
-  },
-  { key: "geography", label: "Geography", render: (g) => g.geography },
   {
     key: "application_model",
     label: "Application model",
@@ -39,6 +28,20 @@ const FIELDS: { key: string; label: string; render: (g: Group) => string }[] = [
     label: "Venture-specific",
     render: (g) => (g.venture_specific ? "Yes" : "No"),
   },
+];
+
+const EXTRA_FIELDS: { key: string; label: string; render: (g: Group) => string }[] = [
+  {
+    key: "other_requirements",
+    label: "Other requirements",
+    render: (g) => g.other_requirements.text,
+  },
+  {
+    key: "time_commitment",
+    label: "Time commitment",
+    render: (g) => g.time_commitment,
+  },
+  { key: "geography", label: "Geography", render: (g) => g.geography },
   { key: "best_for", label: "Best for", render: (g) => g.best_for },
   { key: "not_for", label: "Not for", render: (g) => g.not_for },
   {
@@ -48,19 +51,29 @@ const FIELDS: { key: string; label: string; render: (g: Group) => string }[] = [
   },
 ];
 
+function shortCost(text: string): string {
+  if (text.length <= 72) return text;
+  return `${text.slice(0, 69)}…`;
+}
+
 export function ComparisonTable({
   groups,
   linkNames = true,
+  density = "full",
 }: {
   groups: Group[];
   linkNames?: boolean;
+  density?: "core" | "full";
 }) {
+  const fields = density === "core" ? CORE_FIELDS : [...CORE_FIELDS, ...EXTRA_FIELDS];
   return (
     <div className="overflow-x-auto rounded-[var(--radius-card)] border border-[var(--color-border)]">
-      <table className="cmp-table min-w-[40rem]">
+      <table className="cmp-table min-w-[36rem]">
         <thead>
           <tr>
-            <th scope="col">Field</th>
+            <th scope="col" className="sticky-col">
+              Field
+            </th>
             {groups.map((g) => (
               <th key={g.slug} scope="col">
                 {linkNames ? (
@@ -75,9 +88,11 @@ export function ComparisonTable({
           </tr>
         </thead>
         <tbody>
-          {FIELDS.map((f) => (
+          {fields.map((f) => (
             <tr key={f.key}>
-              <th scope="row">{f.label}</th>
+              <th scope="row" className="sticky-col">
+                {f.label}
+              </th>
               {groups.map((g) => (
                 <td key={g.slug}>{f.render(g)}</td>
               ))}
@@ -111,13 +126,13 @@ export function RankingTable({
         <tbody>
           {groups.map((g, i) => (
             <tr key={g.slug}>
-              <td>{i + 1}</td>
+              <td className="tabular-nums text-[var(--color-muted)]">{i + 1}</td>
               <td>
                 <Link href={`/groups/${g.slug}/`} className="font-medium link-quiet">
                   {g.name}
                 </Link>
               </td>
-              <td>{g.annual_cost.text}</td>
+              <td title={g.annual_cost.text}>{shortCost(g.annual_cost.text)}</td>
               <td>{stageFitSummary(g)}</td>
               <td>{reasons[g.slug] ?? g.best_for}</td>
             </tr>

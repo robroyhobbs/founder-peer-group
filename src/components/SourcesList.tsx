@@ -1,5 +1,18 @@
 import type { Group } from "@/lib/types";
 
+function sourceLabel(url: string): string {
+  try {
+    const u = new URL(url);
+    const host = u.hostname.replace(/^www\./, "");
+    const path = u.pathname === "/" ? "" : u.pathname.replace(/\/$/, "");
+    const short =
+      path.length > 48 ? `${path.slice(0, 45)}…` : path;
+    return short ? `${host}${short}` : host;
+  } catch {
+    return url;
+  }
+}
+
 export function SourcesList({ groups }: { groups: Group[] }) {
   const seen = new Set<string>();
   const items: { url: string; retrieved: string; name: string }[] = [];
@@ -13,15 +26,21 @@ export function SourcesList({ groups }: { groups: Group[] }) {
   return (
     <section className="section-gap border-t border-[var(--color-border)] pt-8">
       <h2>Sources</h2>
-      <ul className="mt-4 space-y-2 text-sm text-[var(--color-muted)]">
+      <p className="mt-1 text-sm text-[var(--color-muted)]">
+        Primary public pages used for the fields above.
+      </p>
+      <ul className="mt-4 space-y-3 text-sm">
         {items.map((s) => (
           <li key={s.url} className="leading-snug">
-            <a href={s.url} className="link-quiet break-all">
-              {s.url}
+            <a
+              href={s.url}
+              className="font-medium text-[var(--color-ink)] underline decoration-[var(--color-border-strong)] hover:text-[var(--color-action)]"
+              title={s.url}
+            >
+              {sourceLabel(s.url)}
             </a>
-            <span className="text-[var(--color-gray)]">
-              {" "}
-              · retrieved {s.retrieved} · via {s.name}
+            <span className="mt-0.5 block text-xs text-[var(--color-muted)]">
+              Retrieved {s.retrieved} · {s.name}
             </span>
           </li>
         ))}
