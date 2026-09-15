@@ -2,6 +2,11 @@
 
 ## 2026-09-15
 
+- Domains: README note to add www.founderpeergroups.com in Vercel project founder-peer-group and redirect to apex (canonical preferred); not settable via API from here.
+- Publish queue: wrote `data/queries.md` (~15 next compares + missing situation pages) from OPERATING-PLAN shapes; synced parent `data/queries.md`.
+
+## 2026-09-15
+
 - Re-verified FounderNexus from foundernexus.com: last_verified 2026-09-15; annual cost still Not published; /apply still 404 (homepage remain apply path); other_requirements aligned to first free guest session language.
 - Methodology FAQ: YC/Techstars alumni networks are useful networks, not structured confidential peer advisory forums; excluded from comparison tables.
 - Added DRAFT outreach notes under drafts/we-listed-you/ for each non-FounderNexus group (human sends).

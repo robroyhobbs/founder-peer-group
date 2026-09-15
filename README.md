@@ -83,3 +83,9 @@ Branch: `main` → personal Vercel project auto-deploy. Do not deploy from Found
 | `/methodology` | Sourcing + FN disclosure |
 | `/data` | Sortable table + `/groups.csv` |
 | `/llms.txt` | Short AEO description for LLM crawlers |
+
+## Domains
+
+Canonical host: apex `https://founderpeergroups.com` (prefer apex over www).
+
+In the personal Vercel project **founder-peer-group**, add `www.founderpeergroups.com` and redirect it to the apex `https://founderpeergroups.com` (or the reverse if you choose www as canonical; apex is preferred). Domain redirects cannot be set via API from this workspace; configure them in the Vercel dashboard (Project → Settings → Domains).
