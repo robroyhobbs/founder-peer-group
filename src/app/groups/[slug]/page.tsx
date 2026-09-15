@@ -15,6 +15,7 @@ import {
 } from "@/lib/data";
 import { profileFaqs, profileSummary } from "@/lib/copy";
 import { featuredRank } from "@/lib/featured";
+import { FnLink } from "@/components/FnLink";
 import { fnUrl } from "@/lib/utm";
 
 export function generateStaticParams() {
@@ -125,9 +126,9 @@ export default async function GroupProfilePage({
         </p>
         {applyUrl && (
           <p className="mt-4">
-            <a href={applyUrl} className="btn-primary">
+            <FnLink href={applyUrl} slug={slug} className="btn-primary">
               Apply on FounderNexus
-            </a>
+            </FnLink>
           </p>
         )}
       </section>

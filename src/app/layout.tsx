@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Plus_Jakarta_Sans } from "next/font/google";
+import { Analytics } from "@vercel/analytics/next";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { GaPlaceholder } from "@/components/GaPlaceholder";
@@ -62,6 +63,7 @@ export default function RootLayout({
         <Header />
         <main className="site-shell w-full flex-1 py-10">{children}</main>
         <Footer />
+        <Analytics />
       </body>
     </html>
   );
