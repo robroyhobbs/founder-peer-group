@@ -7,7 +7,9 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint",
-    "prebuild": "node scripts/generate-csv.mjs",
+    "prebuild": "node scripts/fetch-groups.mjs && node scripts/generate-csv.mjs",
+    "predev": "node scripts/fetch-groups.mjs && node scripts/generate-csv.mjs",
+    "fetch:groups": "node scripts/fetch-groups.mjs",
     "generate:csv": "node scripts/generate-csv.mjs"
   },
   "dependencies": {

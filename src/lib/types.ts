@@ -37,6 +37,8 @@ export interface SourceRef {
   retrieved: string;
 }
 
+export type FnStage = "S1" | "S2" | "S3" | "S4";
+
 export interface Group {
   slug: string;
   name: string;
@@ -49,6 +51,11 @@ export interface Group {
   revenue_floor: SourcedText;
   other_requirements: SourcedText;
   annual_cost: SourcedCost;
+  one_time_cost: string | null;
+  headcount_requirement: string | null;
+  age_requirement: string | null;
+  /** Optional map: counterpart slug -> { S1..S4: verdict string }. */
+  verdict_override: Partial<Record<string, Partial<Record<FnStage, string>>>> | null;
   time_commitment: string;
   geography: string;
   application_model: ApplicationModel | string;
@@ -57,6 +64,7 @@ export interface Group {
   not_for: string;
   sources: SourceRef[];
   last_verified: string;
+  status?: string;
   notes?: string;
 }
 

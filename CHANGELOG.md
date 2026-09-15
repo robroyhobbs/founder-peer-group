@@ -2,6 +2,10 @@
 
 ## 2026-09-15
 
+- Source of data is `foundernexus/fn-content` `data/groups.yaml`, fetched at build with `FN_CONTENT_TOKEN`. Deleted the local group dataset; the site holds no group data of its own.
+
+## 2026-09-15
+
 - SEO: compare titles already query-shaped; meta descriptions now use format/facilitation/venture hooks from the dataset (not generic filler). Profile Related links prioritize featured compare pairs.
 - Home/queue alignment: first five `data/queries.md` items marked `status: featured-on-home`; shared `FEATURED_COMPARE_SLUGS` in `src/lib/featured.ts`.
 
