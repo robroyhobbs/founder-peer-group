@@ -2,6 +2,14 @@
 
 ## 2026-09-15
 
+- Verdicts: when both groups fit a stage, differentiate on facilitation, annual cost, revenue floor, and group size from the row; honor `verdict_override`. Never "compare revenue requirements and format".
+- JSON-LD: Organization + FAQPage on `/groups/*`, FAQPage on `/compare/*`, ItemList on `/best/*`, Dataset on `/data`.
+- FounderNexus links: footer disclosure kept (UTM). One contextual FN link on `/best/*` only where the FN row fits that stage. All FN links use `utm_source=founderpeergroups&utm_medium=referral&utm_campaign=<page-type>&utm_content=<slug>`.
+- `last_verified` shown near the top of every page, including home.
+- `/sitemap.xml` covers every generated route; robots allow indexing.
+
+## 2026-09-15
+
 - Source of data is `foundernexus/fn-content` `data/groups.yaml`, fetched at build with `FN_CONTENT_TOKEN`. Deleted the local group dataset; the site holds no group data of its own.
 
 ## 2026-09-15

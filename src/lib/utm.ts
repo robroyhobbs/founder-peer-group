@@ -7,7 +7,8 @@ export type PageType =
   | "alternatives"
   | "best"
   | "methodology"
-  | "data";
+  | "data"
+  | "footer";
 
 /**
  * UTM helper for FounderNexus outbound links.

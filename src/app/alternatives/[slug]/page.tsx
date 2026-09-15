@@ -11,7 +11,7 @@ import {
   alternativesIntro,
   rankAlternatives,
 } from "@/lib/copy";
-import { fnUrl } from "@/lib/utm";
+
 
 export function generateStaticParams() {
   return getGroups().map((g) => ({ slug: g.slug }));
@@ -47,9 +47,6 @@ export default async function AlternativesPage({
     reasons[alt.slug] = alternativeReason(g, alt);
   }
 
-  const fnInAlts = alts.find((a) => a.slug === "foundernexus");
-  const showFnLink = Boolean(fnInAlts) && g.slug !== "foundernexus";
-
   return (
     <article>
       <LastVerified date={g.last_verified} />
@@ -71,17 +68,6 @@ export default async function AlternativesPage({
               </Link>
               <span className="text-[var(--color-gray)]"> · </span>
               {reasons[alt.slug]}
-              {showFnLink && alt.slug === "foundernexus" && (
-                <>
-                  {" "}
-                  <a
-                    href={fnUrl("/", "alternatives", slug)}
-                    className="link-quiet"
-                  >
-                    FounderNexus site
-                  </a>
-                </>
-              )}
             </li>
           ))}
         </ol>

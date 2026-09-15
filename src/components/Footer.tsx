@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import { fnUrl } from "@/lib/utm";
 
 export function Footer() {
   return (
@@ -16,7 +17,7 @@ export function Footer() {
           <p className="max-w-2xl leading-relaxed">
             Maintained by the team at{" "}
             <a
-              href="https://foundernexus.com"
+              href={fnUrl("/", "footer", "disclosure")}
               className="font-medium text-[var(--color-ink)] underline decoration-[var(--color-border-strong)] hover:text-[var(--color-action)]"
             >
               FounderNexus

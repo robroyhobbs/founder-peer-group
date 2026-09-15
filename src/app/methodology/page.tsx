@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { pageMetadata } from "@/lib/seo";
 import Link from "next/link";
 import { LastVerified } from "@/components/LastVerified";
+import { latestVerified } from "@/lib/data";
 
 export const metadata: Metadata = pageMetadata({
   title: "Methodology",
@@ -13,7 +14,7 @@ export const metadata: Metadata = pageMetadata({
 export default function MethodologyPage() {
   return (
     <article className="prose-block space-y-8">
-      <LastVerified date="2026-09-15" />
+      <LastVerified date={latestVerified()} />
       <h1 className="mt-2">Methodology</h1>
 
       <section>

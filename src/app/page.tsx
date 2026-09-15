@@ -1,7 +1,8 @@
 import Image from "next/image";
 import Link from "next/link";
+import { LastVerified } from "@/components/LastVerified";
 import { homeMetadata } from "@/lib/seo";
-import { getAllPairs, getGroups } from "@/lib/data";
+import { getAllPairs, getGroups, latestVerified } from "@/lib/data";
 import { FEATURED_COMPARE_SLUGS } from "@/lib/featured";
 import { SITUATIONS, STAGES } from "@/lib/types";
 
@@ -16,6 +17,7 @@ export default function HomePage() {
 
   return (
     <div className="space-y-14">
+      <LastVerified date={latestVerified(groups)} />
       <section className="hero-panel">
         <div className="flex flex-col gap-6 sm:flex-row sm:items-start sm:justify-between">
           <div className="prose-block min-w-0">

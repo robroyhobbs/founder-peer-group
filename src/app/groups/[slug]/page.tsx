@@ -13,7 +13,7 @@ import {
   getGroups,
   stageFitSummary,
 } from "@/lib/data";
-import { profileSummary } from "@/lib/copy";
+import { profileFaqs, profileSummary } from "@/lib/copy";
 import { featuredRank } from "@/lib/featured";
 import { fnUrl } from "@/lib/utm";
 
@@ -59,7 +59,9 @@ export default async function GroupProfilePage({
   const isFn = g.slug === "foundernexus";
   const applyUrl = isFn ? fnUrl("/", "profile", slug) : undefined;
 
-  const jsonLd = {
+  const faqs = profileFaqs(g);
+
+  const orgLd = {
     "@context": "https://schema.org",
     "@type": "Organization",
     name: g.name,
@@ -68,9 +70,19 @@ export default async function GroupProfilePage({
     url: `https://founderpeergroups.com/groups/${g.slug}/`,
   };
 
+  const faqLd = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: faqs.map((f) => ({
+      "@type": "Question",
+      name: f.q,
+      acceptedAnswer: { "@type": "Answer", text: f.a },
+    })),
+  };
+
   return (
     <article>
-      <JsonLd data={jsonLd} />
+      <JsonLd data={[orgLd, faqLd]} />
       <LastVerified date={g.last_verified} />
       <h1 className="mt-2">{g.name}</h1>
       <p className="mt-4 prose-block text-base leading-relaxed">
@@ -118,6 +130,20 @@ export default async function GroupProfilePage({
             </a>
           </p>
         )}
+      </section>
+
+      <section className="section-gap">
+        <h2>FAQ</h2>
+        <dl className="mt-4 space-y-5">
+          {faqs.map((f) => (
+            <div key={f.q} className="prose-block">
+              <dt className="font-semibold text-[var(--color-ink)]">{f.q}</dt>
+              <dd className="mt-1.5 text-[0.9375rem] leading-relaxed text-[var(--color-muted)]">
+                {f.a}
+              </dd>
+            </div>
+          ))}
+        </dl>
       </section>
 
       <section className="section-gap">

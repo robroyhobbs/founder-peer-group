@@ -1,6 +1,30 @@
-import type { Group, StageSlug, SituationSlug } from "./types";
+import type { FnStage, Group, StageSlug, SituationSlug } from "./types";
 import { STAGES, SITUATIONS } from "./types";
 import { stageFitSummary, stageLabel } from "./data";
+
+const STAGE_TO_FN: Record<StageSlug, FnStage> = {
+  "pre-seed-seed": "S1",
+  "series-a": "S2",
+  growth: "S3",
+  "late-stage": "S4",
+};
+
+function publishedCost(text: string): boolean {
+  return Boolean(text) && text !== "Not published";
+}
+
+function verdictOverride(
+  a: Group,
+  b: Group,
+  stage: StageSlug
+): string | null {
+  const key = STAGE_TO_FN[stage];
+  const fromA = a.verdict_override?.[b.slug]?.[key];
+  const fromB = b.verdict_override?.[a.slug]?.[key];
+  if (typeof fromA === "string" && fromA.trim()) return fromA.trim();
+  if (typeof fromB === "string" && fromB.trim()) return fromB.trim();
+  return null;
+}
 
 export function profileSummary(g: Group): string {
   const founded = g.founded ? ` Founded ${g.founded}.` : "";
@@ -19,18 +43,51 @@ export function compareMetaDescription(a: Group, b: Group): string {
 }
 
 export function stageVerdict(stage: StageSlug, a: Group, b: Group): string {
+  const override = verdictOverride(a, b, stage);
+  if (override) return override;
+
   const aFit = a.stage_fit.includes(stage);
   const bFit = b.stage_fit.includes(stage);
   const label = stageLabel(stage);
 
   if (aFit && bFit) {
-    if (a.venture_specific && !b.venture_specific) {
-      return `At ${label}, both list this stage. ${a.name} is venture-specific. ${b.name} is broader. The fit is ${a.name} when you want a venture-scale room; ${b.name} when you want a wider peer mix.`;
+    const parts: string[] = [`At ${label}, both ${a.name} and ${b.name} list this stage.`];
+    if (a.facilitation !== b.facilitation) {
+      parts.push(
+        `${a.name} facilitation is ${a.facilitation}. ${b.name} facilitation is ${b.facilitation}.`
+      );
     }
-    if (b.venture_specific && !a.venture_specific) {
-      return `At ${label}, both list this stage. ${b.name} is venture-specific. ${a.name} is broader. The fit is ${b.name} when you want a venture-scale room; ${a.name} when you want a wider peer mix.`;
+    if (a.annual_cost.text !== b.annual_cost.text) {
+      const aCost = publishedCost(a.annual_cost.text)
+        ? a.annual_cost.text
+        : "Not published";
+      const bCost = publishedCost(b.annual_cost.text)
+        ? b.annual_cost.text
+        : "Not published";
+      parts.push(`${a.name} annual cost is ${aCost}. ${b.name} annual cost is ${bCost}.`);
     }
-    return `At ${label}, both ${a.name} and ${b.name} list this stage. Compare revenue floor (${a.revenue_floor.text} vs ${b.revenue_floor.text}) and format (${a.format} vs ${b.format}) to decide.`;
+    if (a.revenue_floor.text !== b.revenue_floor.text) {
+      parts.push(
+        `${a.name} revenue floor is ${a.revenue_floor.text}. ${b.name} revenue floor is ${b.revenue_floor.text}.`
+      );
+    }
+    if (a.group_size !== b.group_size) {
+      parts.push(
+        `${a.name} group size is ${a.group_size}. ${b.name} group size is ${b.group_size}.`
+      );
+    }
+    if (a.venture_specific !== b.venture_specific) {
+      const vs = a.venture_specific ? a.name : b.name;
+      const broader = a.venture_specific ? b.name : a.name;
+      parts.push(
+        `${vs} is venture-specific. ${broader} is broader. The fit is ${vs} when you want a venture-scale group; ${broader} when you want a wider peer mix.`
+      );
+    } else if (parts.length === 1) {
+      parts.push(
+        `Both use ${a.facilitation}. Annual cost is ${a.annual_cost.text}. Revenue floor is ${a.revenue_floor.text}. Group size is ${a.group_size}.`
+      );
+    }
+    return parts.join(" ");
   }
   if (aFit && !bFit) {
     return `At ${label}, ${a.name} lists this stage. ${b.name} does not. The fit is ${a.name} for this stage band.`;
@@ -141,6 +198,23 @@ export function rankForStage(stage: StageSlug, all: Group[], limit = 7): Group[]
     ranked.push(...sortFit(fillers).slice(0, 5 - ranked.length));
   }
   return ranked.slice(0, limit);
+}
+
+export function profileFaqs(g: Group): { q: string; a: string }[] {
+  return [
+    {
+      q: `How much does ${g.name} cost?`,
+      a: `${g.name}: ${g.annual_cost.text} (verified ${g.annual_cost.date}). Prices are shown verbatim from public sources; nothing is estimated.`,
+    },
+    {
+      q: `What are the requirements for ${g.name}?`,
+      a: `${g.name}: ${g.revenue_floor.text} ${g.other_requirements.text}`,
+    },
+    {
+      q: `Who is ${g.name} for?`,
+      a: `${g.best_for} Not for: ${g.not_for}`,
+    },
+  ];
 }
 
 export function compareFaqs(a: Group, b: Group): { q: string; a: string }[] {

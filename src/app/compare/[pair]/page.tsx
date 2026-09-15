@@ -9,7 +9,7 @@ import { SourcesList } from "@/components/SourcesList";
 import { getAllPairs, getGroup, parsePairSlug } from "@/lib/data";
 import { compareFaqs, compareMetaDescription, pairFraming, stageVerdict } from "@/lib/copy";
 import { STAGES } from "@/lib/types";
-import { fnUrl } from "@/lib/utm";
+
 
 export function generateStaticParams() {
   return getAllPairs().map((p) => ({ pair: p.pairSlug }));
@@ -49,11 +49,6 @@ export default async function ComparePage({
     a.last_verified > b.last_verified ? a.last_verified : b.last_verified;
   const faqs = compareFaqs(a, b);
 
-  const fn =
-    a.slug === "foundernexus" ? a : b.slug === "foundernexus" ? b : null;
-  const fnLinkStage = fn?.stage_fit[0] ?? null;
-  const fnOutbound = fn && fnLinkStage ? fnUrl("/", "compare", pair) : null;
-
   const faqLd = {
     "@context": "https://schema.org",
     "@type": "FAQPage",
@@ -90,15 +85,6 @@ export default async function ComparePage({
               <h3>{s.label}</h3>
               <p className="mt-1.5 text-[0.9375rem] leading-relaxed">
                 {stageVerdict(s.slug, a, b)}
-                {fnOutbound && fnLinkStage === s.slug && (
-                  <>
-                    {" "}
-                    <a href={fnOutbound} className="link-quiet">
-                      FounderNexus site
-                    </a>
-                    .
-                  </>
-                )}
               </p>
             </div>
           ))}

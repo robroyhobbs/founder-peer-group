@@ -294,3 +294,8 @@ export function toCsv(groups: Group[]): string {
 export function getSituation(slug: string) {
   return SITUATIONS.find((s) => s.slug === slug);
 }
+
+export function latestVerified(groups: Group[] = getGroups()): string {
+  const dates = groups.map((g) => g.last_verified).filter(Boolean).sort();
+  return dates[dates.length - 1] ?? "";
+}
