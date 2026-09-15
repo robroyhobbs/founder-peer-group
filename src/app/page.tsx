@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { getAllPairs, getGroups } from "@/lib/data";
-import { STAGES } from "@/lib/types";
+import { SITUATIONS, STAGES } from "@/lib/types";
 
 export default function HomePage() {
   const groups = getGroups();
@@ -41,6 +41,27 @@ export default function HomePage() {
                 </span>
                 <span className="mt-1 block text-sm text-[var(--color-muted)]">
                   {s.arrBand}
+                </span>
+              </Link>
+            </li>
+          ))}
+        </ul>
+      </section>
+
+      <section>
+        <h2>Start by situation</h2>
+        <p className="mt-1 text-sm text-[var(--color-muted)]">
+          Same dataset, ranked for common founder situations.
+        </p>
+        <ul className="mt-5 grid gap-3 sm:grid-cols-2">
+          {SITUATIONS.map((s) => (
+            <li key={s.slug}>
+              <Link href={`/best/${s.slug}/`} className="card block no-underline">
+                <span className="font-semibold text-[var(--color-ink)]">
+                  {s.label}
+                </span>
+                <span className="mt-1 block text-sm text-[var(--color-muted)]">
+                  {s.description}
                 </span>
               </Link>
             </li>

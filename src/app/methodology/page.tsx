@@ -1,10 +1,11 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { LastVerified } from "@/components/LastVerified";
 
 export const metadata: Metadata = {
   title: "Methodology",
   description:
-    "How founderpeergroups.com evaluates peer groups, sources data, and discloses FounderNexus involvement.",
+    "How founderpeergroups.com evaluates peer groups, sources data, ranks best-for pages, and discloses FounderNexus involvement.",
 };
 
 export default function MethodologyPage() {
@@ -34,9 +35,33 @@ export default function MethodologyPage() {
         </p>
         <p className="mt-3 leading-relaxed">
           Stage pages use ARR bands labeled in search language: pre-seed and
-          seed (under $2M), Series A ($2M to $10M), growth ($10M to $50M), late stage
-          ($50M+). If a group has an empty stage_fit list, pages say the group
-          is not framed by VC stage.
+          seed (under $2M), Series A ($2M to $10M), growth ($10M to $50M), late
+          stage ($50M+). If a group has an empty stage_fit list, pages say the
+          group is not framed by VC stage.
+        </p>
+      </section>
+
+      <section>
+        <h2>Best-for stage and situation pages</h2>
+        <p className="mt-3 leading-relaxed">
+          <Link href="/best/series-a/" className="link-quiet">
+            Best-for-stage
+          </Link>{" "}
+          pages rank groups whose <code>stage_fit</code> includes that band,
+          with mild tie-breaks for venture_specific on earlier stages and for
+          published cost transparency. Situation pages (first-time founder,
+          solo founder, just raised, considering an exit, venture-backed, women
+          founders and leaders) use the same dataset. Scores read only yaml
+          fields such as stage_fit, venture_specific, facilitation, structure,
+          and verbatim text in best_for, not_for, revenue_floor, and
+          other_requirements. Reasons on the page cite those fields. Rankings
+          are deterministic templates, not editorial reviews.
+        </p>
+        <p className="mt-3 leading-relaxed">
+          Each best-for page includes a short needs statement, a ranked list of
+          five to seven groups, a comparison table, five questions to ask before
+          joining, and sources. Voice stays restrained: prefer &quot;the fit
+          is&quot; over &quot;we recommend.&quot;
         </p>
       </section>
 
@@ -54,6 +79,7 @@ export default function MethodologyPage() {
         <p className="mt-3 leading-relaxed">
           Each group has a <code>last_verified</code> date shown near the top of
           content pages. The target cadence is re-verification every 30 days.
+          Stale data past 45 days is treated as an operating defect.
         </p>
       </section>
 

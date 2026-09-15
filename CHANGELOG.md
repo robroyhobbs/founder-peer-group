@@ -2,6 +2,12 @@
 
 ## 2026-09-15
 
+- Added six best-for-situation pages under `/best/{situation-slug}` (shared route with stage pages): first-time-founder, solo-founder, just-raised, considering-exit, venture-backed, women-founders-leaders. Rankings and reasons grounded in groups.yaml fields only.
+- Home links situations; sitemap includes situation URLs; methodology expanded with best-for ranking rules.
+- Renamed dynamic segment `best/[stage]` to `best/[slug]` so stage and situation share one template.
+
+## 2026-09-15
+
 - Local Next.js scaffold created at `site/` (not a git clone). Static export, App Router, TypeScript, Tailwind, js-yaml.
 - Copied `data/groups.yaml` and `OPERATING-PLAN.md` into the site root / data tree.
 - Generated page types: home, profiles, all pairwise compares, alternatives, best-for-stage (4), methodology, data (+ CSV), sitemap, robots.

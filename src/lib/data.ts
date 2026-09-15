@@ -2,7 +2,7 @@ import fs from "fs";
 import path from "path";
 import yaml from "js-yaml";
 import type { Group, GroupsFile, StageSlug } from "./types";
-import { STAGES } from "./types";
+import { STAGES, SITUATIONS } from "./types";
 
 const DATA_PATH = path.join(process.cwd(), "data", "groups.yaml");
 
@@ -129,4 +129,8 @@ export function toCsv(groups: Group[]): string {
       .join(",")
   );
   return [headers.join(","), ...rows].join("\n") + "\n";
+}
+
+export function getSituation(slug: string) {
+  return SITUATIONS.find((s) => s.slug === slug);
 }

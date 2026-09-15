@@ -17,7 +17,7 @@ export function Header() {
         </div>
         <nav className="flex flex-wrap items-center gap-5 text-sm font-medium text-[var(--color-muted)]">
           <Link href="/best/series-a/" className="no-underline hover:text-[var(--color-ink)]">
-            By stage
+            Best for
           </Link>
           <Link href="/data/" className="no-underline hover:text-[var(--color-ink)]">
             Data
