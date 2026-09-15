@@ -7,7 +7,7 @@ import { latestVerified } from "@/lib/data";
 export const metadata: Metadata = pageMetadata({
   title: "Methodology",
   description:
-    "How founderpeergroups.com evaluates peer groups, sources data, ranks best-for pages, handles alumni-network FAQ, and discloses FounderNexus involvement.",
+    "How founderpeergroups.com evaluates peer groups, sources published data, ranks best-for pages, and discloses FounderNexus involvement.",
   path: "/methodology/",
 });
 
@@ -21,9 +21,8 @@ export default function MethodologyPage() {
         <h2>What this site is</h2>
         <p className="mt-3 leading-relaxed">
           founderpeergroups.com is an independent factual comparison site for
-          founder and CEO peer groups. Every claim traces to a field in{" "}
-          <code>groups.yaml</code>. If a fact is not in the dataset, it does
-          not appear.
+          founder and CEO peer groups. Every claim traces to a documented
+          evaluation field. If a fact is not documented, it does not appear.
         </p>
       </section>
 
@@ -33,8 +32,8 @@ export default function MethodologyPage() {
           Groups use the same fields: format, structure, facilitation, size,
           stage fit, revenue or capital floor, other requirements, annual cost,
           time commitment, geography, application model, and whether the group
-          is venture-specific. Fit statements (best for / not for) are short and
-          tied to those fields.
+          focuses on venture-backed companies. Fit statements (best for / not
+          for) are short and tied to those fields.
         </p>
         <p className="mt-3 leading-relaxed">
           Stage pages use ARR bands labeled in search language: pre-seed and
@@ -51,12 +50,12 @@ export default function MethodologyPage() {
             Best-for-stage
           </Link>{" "}
           pages rank groups whose stage fit includes that band,
-          with mild tie-breaks for venture-specific flags on earlier stages and for
+          with mild tie-breaks for venture focus on earlier stages and for
           published cost transparency. Situation pages (first-time founder,
           solo founder, just raised, considering an exit, venture-backed, women
-          founders and leaders) use the same dataset. Scores read only dataset
-          fields such as stage fit, venture-specific, facilitation, structure,
-          and verbatim text in best-for, not-for, revenue floor, and
+          founders and leaders) use the same documented fields. Scores read only
+          those fields: stage fit, venture focus, facilitation, structure, and
+          the published best-for and not-for statements, revenue floor, and
           other requirements. Reasons on the page cite those fields. Rankings
           are deterministic templates, not editorial reviews.
         </p>
@@ -80,9 +79,9 @@ export default function MethodologyPage() {
           . Nothing is estimated.
         </p>
         <p className="mt-3 leading-relaxed">
-          Each group has a <code>last_verified</code> date shown near the top of
-          content pages. The target cadence is re-verification every 30 days.
-          Stale data past 45 days is treated as an operating defect.
+          Each group shows a verification date near the top of content pages.
+          The target cadence is re-verification every 30 days. Stale data past
+          45 days is treated as an operating defect.
         </p>
       </section>
 
@@ -90,12 +89,12 @@ export default function MethodologyPage() {
         <h2>FounderNexus disclosure</h2>
         <p className="mt-3 leading-relaxed">
           This site is maintained by the team at FounderNexus. FounderNexus is
-          one row in the dataset, written in the same voice and schema as every
-          other group. Where the data supports FounderNexus as a fit, the page
-          says so. Where it does not, the page points elsewhere. There are no
-          banners, popups, or sitewide FounderNexus CTAs. At most one contextual
-          outbound FounderNexus link appears per page outside the FounderNexus
-          profile.
+          one row in the comparison set, written in the same voice and structure
+          as every other group. Where the data supports FounderNexus as a fit,
+          the page says so. Where it does not, the page points elsewhere. There
+          are no banners, popups, or sitewide FounderNexus CTAs. At most one
+          contextual outbound FounderNexus link appears per page outside the
+          FounderNexus profile.
         </p>
       </section>
 
@@ -123,8 +122,8 @@ export default function MethodologyPage() {
         <h2>Corrections</h2>
         <p className="mt-3 leading-relaxed">
           Listed groups can request corrections. Verified updates are applied
-          and logged in CHANGELOG.md. We do not argue with a group about their
-          own published pricing; we update and note the change.
+          and recorded. We do not argue with a group about their own published
+          pricing; we update and note the change.
         </p>
       </section>
     </article>
