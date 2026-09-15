@@ -2,6 +2,12 @@
 
 ## 2026-09-15
 
+- Re-verified FounderNexus from foundernexus.com: last_verified 2026-09-15; annual cost still Not published; /apply still 404 (homepage remain apply path); other_requirements aligned to first free guest session language.
+- Methodology FAQ: YC/Techstars alumni networks are useful networks, not structured confidential peer advisory forums; excluded from comparison tables.
+- Added DRAFT outreach notes under drafts/we-listed-you/ for each non-FounderNexus group (human sends).
+
+## 2026-09-15
+
 - Brand polish: header mark + text lockup (no FN logo), favicon via `/icon.png`, hero soft `#F1F5F9` panel with mark accent, elevated cards with interactive hover, footer mark + disclosure.
 
 ## 2026-09-15

@@ -6,7 +6,7 @@ import { LastVerified } from "@/components/LastVerified";
 export const metadata: Metadata = pageMetadata({
   title: "Methodology",
   description:
-    "How founderpeergroups.com evaluates peer groups, sources data, ranks best-for pages, and discloses FounderNexus involvement.",
+    "How founderpeergroups.com evaluates peer groups, sources data, ranks best-for pages, handles alumni-network FAQ, and discloses FounderNexus involvement.",
   path: "/methodology/",
 });
 
@@ -96,6 +96,26 @@ export default function MethodologyPage() {
           outbound FounderNexus link appears per page outside the FounderNexus
           profile.
         </p>
+      </section>
+
+
+      <section>
+        <h2>FAQ</h2>
+        <dl className="mt-4 space-y-5">
+          <div>
+            <dt className="font-semibold text-[var(--color-ink)]">
+              Do YC or Techstars alumni networks substitute for a peer group?
+            </dt>
+            <dd className="mt-1.5 leading-relaxed text-[var(--color-muted)]">
+              Alumni networks from accelerators such as Y Combinator and
+              Techstars are useful. They are not structured, confidential peer
+              advisory forums with a recurring room, clear membership bar, and
+              an explicit advisory cadence. This site compares peer groups that
+              publish that kind of product. Accelerator alumni networks are
+              excluded from the comparison tables for that reason.
+            </dd>
+          </div>
+        </dl>
       </section>
 
       <section>

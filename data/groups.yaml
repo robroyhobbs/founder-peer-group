@@ -21,12 +21,12 @@ groups:
       text: "Venture-scale; stages mapped as $0–2M ARR (pre-seed/seed) through $50M+ ARR / Exit. Pre-approval: 3+ years as a venture-scale founder or meaningful VC round already raised; experience navigating a VC or angel raise; building or seeking to build a venture-scale company."
       source: "https://foundernexus.com"
     other_requirements:
-      text: "Apply → pre-approval → 1–2 free guest sessions → peer evaluation → invitation to matching stage room. VC-fund referrals receive expedited pre-approval."
+      text: "Application → pre-approval → first session free as guest → peer evaluation → invitation to matching stage room. VC-fund referrals receive expedited pre-approval."
       source: "https://foundernexus.com"
     annual_cost:
       text: "Not published"
       source: "https://foundernexus.com"
-      date: "2026-08-21"
+      date: "2026-09-15"
     time_commitment: "Monthly stage sessions plus Nexus Partner 1:1; cadence otherwise not quantified on homepage"
     geography: "Online plus in-person (Seattle, San Francisco, London named on Luma)"
     application_model: application
@@ -35,11 +35,11 @@ groups:
     not_for: "Lifestyle businesses, sub-$1M ARR services firms, or founders who want a paid facilitator-led CEO forum."
     sources:
       - url: "https://foundernexus.com"
-        retrieved: "2026-08-21"
+        retrieved: "2026-09-15"
       - url: "https://luma.com/FounderNexus"
         retrieved: "2026-08-21"
-    last_verified: "2026-08-21"
-    notes: "HUMAN REVIEW REQUIRED before any page that names FounderNexus. Snapshot older than peer competitors; re-verify on next pass. /apply 404 as of Aug 2026 snapshot — confirm current apply URL."
+    last_verified: "2026-09-15"
+    notes: "Re-verified 2026-09-15 from foundernexus.com. Annual cost still not published. /apply still 404; apply CTA remains homepage. Luma geography (SF, London) not rechecked this pass. HUMAN REVIEW still required before any page that names FounderNexus."
 
   - slug: vistage
     name: Vistage
