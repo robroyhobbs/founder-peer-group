@@ -10,12 +10,14 @@ export default function HomePage() {
   const groups = getGroups();
   const pairs = getAllPairs();
   const topComparisons = [
+    "eo-vs-vistage",
+    "hampton-vs-ypo",
+    "foundernexus-vs-ypo",
+    "eo-vs-foundernexus",
+    "hampton-vs-pavilion",
     "hampton-vs-vistage",
     "eo-vs-ypo",
     "foundernexus-vs-hampton",
-    "vistage-vs-ypo",
-    "foundernexus-vs-vistage",
-    "chief-vs-hampton",
   ]
     .map((slug) => pairs.find((p) => p.pairSlug === slug))
     .filter(Boolean) as typeof pairs;

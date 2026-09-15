@@ -49,3 +49,5 @@
 - QA polish: readable source labels, sticky field column, core fit-snapshot table on profiles, denser ranking cost cells (2026-09-15).
 
 - Hide snake_case field names from user-facing copy (stage fit, not stage_fit).
+
+- Home top comparisons reordered to match publish queue priorities (EO–Vistage triangle, FN–YPO/EO, Hampton–Pavilion).
