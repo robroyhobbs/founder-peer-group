@@ -41,3 +41,6 @@ yarn-error.log*
 next-env.d.ts
 
 !.env.example
+
+# fetched at build from foundernexus/fn-content; never commit
+/data/.fetched-groups.yaml

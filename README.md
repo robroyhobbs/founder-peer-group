@@ -1,6 +1,6 @@
 # founderpeergroups.com
 
-Independent, factual comparison site for founder and CEO peer groups. Driven by `data/groups.yaml`.
+Independent, factual comparison site for founder and CEO peer groups. Group data is fetched at build from `foundernexus/fn-content` (`data/groups.yaml`). This repo holds no group data of its own.
 
 Live preview (personal Vercel): https://founder-peer-group.vercel.app/  
 Production domain (when attached): https://founderpeergroups.com/
@@ -15,11 +15,11 @@ Production domain (when attached): https://founderpeergroups.com/
 ## Setup
 
 ```bash
-cd site
 npm install
-cp .env.example .env.local   # optional: set NEXT_PUBLIC_GA4_MEASUREMENT_ID
-npm run build                # also generates public/groups.csv
-npm run dev                  # local preview
+cp .env.example .env.local   # FN_CONTENT_TOKEN required; GA4 optional
+export FN_CONTENT_TOKEN=...  # fine-grained PAT, contents:read on foundernexus/fn-content
+npm run build                # fetches groups.yaml, then generates public/groups.csv
+npm run dev                  # local preview (also fetches)
 ```
 
 Preview the static export:
@@ -31,10 +31,10 @@ npx serve out
 
 ## Daily updates (ops)
 
-1. Edit `data/groups.yaml` (verify from primary sources; never invent prices).
-2. Update `CHANGELOG.md` (required for every change).
-3. Commit and push to `origin/main`.
-4. Vercel auto-deploys from this repo.
+1. Edit `data/groups.yaml` in `foundernexus/fn-content` (verify from primary sources; never invent prices).
+2. Merge to `fn-content` `main`. The deploy hook rebuilds this site.
+3. Update `CHANGELOG.md` here only for renderer changes.
+4. Commit and push renderer changes to `origin/main`.
 
 See `docs/UPDATE-CADENCE.md` for daily / weekly / monthly Peer Groups bot steps (summary of `OPERATING-PLAN.md`).
 
