@@ -8,7 +8,14 @@ export function profileSummary(g: Group): string {
 }
 
 export function pairFraming(a: Group, b: Group): string {
-  return `${a.name} and ${b.name} are both founder or CEO peer options. This page compares cost, requirements, format, and stage fit using verified public data.`;
+  return `${a.name} is a ${a.format} ${a.structure} with ${a.facilitation}. ${b.name} is a ${b.format} ${b.structure} with ${b.facilitation}. This page compares cost, requirements, format, and stage fit using verified public data. ${a.name}: ${a.best_for} ${b.name}: ${b.best_for}`;
+}
+
+/** One-sentence meta: query shape + dataset hooks (no invented facts). */
+export function compareMetaDescription(a: Group, b: Group): string {
+  const aHook = a.venture_specific ? "venture-specific" : a.facilitation;
+  const bHook = b.venture_specific ? "venture-specific" : b.facilitation;
+  return `${a.name} (${a.format}, ${aHook}) vs ${b.name} (${b.format}, ${bHook}). Compare cost, requirements, and stage fit from verified public sources.`;
 }
 
 export function stageVerdict(stage: StageSlug, a: Group, b: Group): string {

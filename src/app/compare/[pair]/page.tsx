@@ -7,7 +7,7 @@ import { JsonLd } from "@/components/JsonLd";
 import { LastVerified } from "@/components/LastVerified";
 import { SourcesList } from "@/components/SourcesList";
 import { getAllPairs, getGroup, parsePairSlug } from "@/lib/data";
-import { compareFaqs, pairFraming, stageVerdict } from "@/lib/copy";
+import { compareFaqs, compareMetaDescription, pairFraming, stageVerdict } from "@/lib/copy";
 import { STAGES } from "@/lib/types";
 import { fnUrl } from "@/lib/utm";
 
@@ -28,7 +28,7 @@ export async function generateMetadata({
   if (!a || !b) return { title: "Comparison" };
   return pageMetadata({
     title: `${a.name} vs ${b.name}: cost, requirements, and fit by stage (2026)`,
-    description: pairFraming(a, b).slice(0, 160),
+    description: compareMetaDescription(a, b),
     path: `/compare/${pair}/`,
   });
 }

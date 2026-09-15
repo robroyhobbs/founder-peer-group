@@ -2,6 +2,11 @@
 
 ## 2026-09-15
 
+- SEO: compare titles already query-shaped; meta descriptions now use format/facilitation/venture hooks from the dataset (not generic filler). Profile Related links prioritize featured compare pairs.
+- Home/queue alignment: first five `data/queries.md` items marked `status: featured-on-home`; shared `FEATURED_COMPARE_SLUGS` in `src/lib/featured.ts`.
+
+## 2026-09-15
+
 - Domains: README note to add www.founderpeergroups.com in Vercel project founder-peer-group and redirect to apex (canonical preferred); not settable via API from here.
 - Publish queue: wrote `data/queries.md` (~15 next compares + missing situation pages) from OPERATING-PLAN shapes; synced parent `data/queries.md`.
 

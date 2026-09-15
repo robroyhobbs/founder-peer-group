@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { homeMetadata } from "@/lib/seo";
 import { getAllPairs, getGroups } from "@/lib/data";
+import { FEATURED_COMPARE_SLUGS } from "@/lib/featured";
 import { SITUATIONS, STAGES } from "@/lib/types";
 
 export const metadata = homeMetadata();
@@ -9,18 +10,9 @@ export const metadata = homeMetadata();
 export default function HomePage() {
   const groups = getGroups();
   const pairs = getAllPairs();
-  const topComparisons = [
-    "eo-vs-vistage",
-    "hampton-vs-ypo",
-    "foundernexus-vs-ypo",
-    "eo-vs-foundernexus",
-    "hampton-vs-pavilion",
-    "hampton-vs-vistage",
-    "eo-vs-ypo",
-    "foundernexus-vs-hampton",
-  ]
-    .map((slug) => pairs.find((p) => p.pairSlug === slug))
-    .filter(Boolean) as typeof pairs;
+  const topComparisons = FEATURED_COMPARE_SLUGS.map((slug) =>
+    pairs.find((p) => p.pairSlug === slug)
+  ).filter(Boolean) as typeof pairs;
 
   return (
     <div className="space-y-14">

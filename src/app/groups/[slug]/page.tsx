@@ -14,6 +14,7 @@ import {
   stageFitSummary,
 } from "@/lib/data";
 import { profileSummary } from "@/lib/copy";
+import { featuredRank } from "@/lib/featured";
 import { fnUrl } from "@/lib/utm";
 
 export function generateStaticParams() {
@@ -48,6 +49,11 @@ export default async function GroupProfilePage({
 
   const pairs = getAllPairs()
     .filter((p) => p.a.slug === slug || p.b.slug === slug)
+    .sort((x, y) => {
+      const dr = featuredRank(x.pairSlug) - featuredRank(y.pairSlug);
+      if (dr !== 0) return dr;
+      return x.pairSlug.localeCompare(y.pairSlug);
+    })
     .slice(0, 3);
 
   const isFn = g.slug === "foundernexus";
