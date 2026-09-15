@@ -2,11 +2,30 @@ import Image from "next/image";
 import Link from "next/link";
 import { LastVerified } from "@/components/LastVerified";
 import { homeMetadata } from "@/lib/seo";
-import { getAllPairs, getGroups, latestVerified } from "@/lib/data";
+import { getAllPairs, getGroups, latestVerified, stageFitSummary } from "@/lib/data";
 import { FEATURED_COMPARE_SLUGS } from "@/lib/featured";
-import { SITUATIONS, STAGES } from "@/lib/types";
+import { SITUATIONS, STAGES, type Group } from "@/lib/types";
 
 export const metadata = homeMetadata();
+
+/** Quiet supporting line from dataset fields only (no costs). */
+function pairSupportLine(a: Group, b: Group): string {
+  if (a.structure !== b.structure) {
+    return `${a.structure} vs ${b.structure}`;
+  }
+  if (a.format !== b.format) {
+    return `${a.format} vs ${b.format}`;
+  }
+  const aFit = stageFitSummary(a);
+  const bFit = stageFitSummary(b);
+  if (aFit !== bFit) {
+    return `${aFit} · ${bFit}`;
+  }
+  if (a.facilitation !== b.facilitation) {
+    return `${a.facilitation} vs ${b.facilitation}`;
+  }
+  return `${a.structure} · ${a.facilitation}`;
+}
 
 export default function HomePage() {
   const groups = getGroups();
@@ -27,6 +46,10 @@ export default function HomePage() {
               Costs, requirements, and stage fit from verified public sources. Every
               claim traces to a field in the dataset. Prices are never estimated.
             </p>
+            <p className="mt-5 text-sm leading-relaxed text-[var(--color-muted)]">
+              <span className="font-medium text-[var(--color-ink)]">How to use this.</span>{" "}
+              Pick a stage, open a comparison, then check the sources on each page.
+            </p>
           </div>
           <div
             className="hidden sm:flex shrink-0 items-center justify-center"
@@ -41,14 +64,6 @@ export default function HomePage() {
               priority
             />
           </div>
-        </div>
-        <div
-          className="mt-6 flex items-center gap-3 border-t border-[var(--color-border)] pt-5"
-          aria-hidden="true"
-        >
-          <Image src="/brand/mark.png" alt="" width={22} height={22} className="h-[22px] w-[22px] opacity-50" />
-          <Image src="/brand/mark.png" alt="" width={22} height={22} className="h-[22px] w-[22px] opacity-35" />
-          <Image src="/brand/mark.png" alt="" width={22} height={22} className="h-[22px] w-[22px] opacity-20" />
         </div>
       </section>
 
@@ -96,11 +111,19 @@ export default function HomePage() {
 
       <section>
         <h2>Top comparisons</h2>
-        <ul className="mt-4 space-y-2">
+        <ul className="mt-4 grid gap-3 sm:grid-cols-2">
           {topComparisons.map((p) => (
             <li key={p.pairSlug}>
-              <Link href={`/compare/${p.pairSlug}/`} className="link-quiet text-[0.9375rem]">
-                {p.a.name} vs {p.b.name}
+              <Link
+                href={`/compare/${p.pairSlug}/`}
+                className="card card-interactive block no-underline"
+              >
+                <span className="font-semibold text-[var(--color-ink)]">
+                  {p.a.name} vs {p.b.name}
+                </span>
+                <span className="mt-1 block text-sm text-[var(--color-muted)]">
+                  {pairSupportLine(p.a, p.b)}
+                </span>
               </Link>
             </li>
           ))}
@@ -111,10 +134,10 @@ export default function HomePage() {
       </section>
 
       <section>
-        <h2>All groups</h2>
-        <ul className="mt-4 grid gap-x-6 gap-y-2.5 sm:grid-cols-2">
+        <h3 className="text-base font-semibold text-[var(--color-ink)]">All groups</h3>
+        <ul className="mt-3 grid gap-x-5 gap-y-1.5 text-sm sm:grid-cols-2 lg:grid-cols-3">
           {groups.map((g) => (
-            <li key={g.slug} className="text-[0.9375rem]">
+            <li key={g.slug}>
               <Link href={`/groups/${g.slug}/`} className="font-medium link-quiet">
                 {g.name}
               </Link>
@@ -141,3 +164,4 @@ export default function HomePage() {
     </div>
   );
 }
+
