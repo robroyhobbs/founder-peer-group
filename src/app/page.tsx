@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { homeMetadata } from "@/lib/seo";
 import { getAllPairs, getGroups } from "@/lib/data";
@@ -21,13 +22,38 @@ export default function HomePage() {
 
   return (
     <div className="space-y-14">
-      <section className="prose-block">
-        <p className="chip mb-4">Independent reference · {groups.length} groups</p>
-        <h1>Founder and CEO peer groups, compared</h1>
-        <p className="mt-4 text-base leading-relaxed text-[var(--color-muted)]">
-          Costs, requirements, and stage fit from verified public sources. Every
-          claim traces to a field in the dataset. Prices are never estimated.
-        </p>
+      <section className="hero-panel">
+        <div className="flex flex-col gap-6 sm:flex-row sm:items-start sm:justify-between">
+          <div className="prose-block min-w-0">
+            <p className="chip mb-4">Independent reference · {groups.length} groups</p>
+            <h1>Founder and CEO peer groups, compared</h1>
+            <p className="mt-4 text-base leading-relaxed text-[var(--color-muted)]">
+              Costs, requirements, and stage fit from verified public sources. Every
+              claim traces to a field in the dataset. Prices are never estimated.
+            </p>
+          </div>
+          <div
+            className="hidden sm:flex shrink-0 items-center justify-center"
+            aria-hidden="true"
+          >
+            <Image
+              src="/brand/mark.png"
+              alt=""
+              width={72}
+              height={72}
+              className="h-[4.5rem] w-[4.5rem] opacity-90"
+              priority
+            />
+          </div>
+        </div>
+        <div
+          className="mt-6 flex items-center gap-3 border-t border-[var(--color-border)] pt-5"
+          aria-hidden="true"
+        >
+          <Image src="/brand/mark.png" alt="" width={22} height={22} className="h-[22px] w-[22px] opacity-50" />
+          <Image src="/brand/mark.png" alt="" width={22} height={22} className="h-[22px] w-[22px] opacity-35" />
+          <Image src="/brand/mark.png" alt="" width={22} height={22} className="h-[22px] w-[22px] opacity-20" />
+        </div>
       </section>
 
       <section>
@@ -38,7 +64,7 @@ export default function HomePage() {
         <ul className="mt-5 grid gap-3 sm:grid-cols-2">
           {STAGES.map((s) => (
             <li key={s.slug}>
-              <Link href={`/best/${s.slug}/`} className="card block no-underline">
+              <Link href={`/best/${s.slug}/`} className="card card-interactive block no-underline">
                 <span className="font-semibold text-[var(--color-ink)]">
                   {s.label}
                 </span>
@@ -59,7 +85,7 @@ export default function HomePage() {
         <ul className="mt-5 grid gap-3 sm:grid-cols-2">
           {SITUATIONS.map((s) => (
             <li key={s.slug}>
-              <Link href={`/best/${s.slug}/`} className="card block no-underline">
+              <Link href={`/best/${s.slug}/`} className="card card-interactive block no-underline">
                 <span className="font-semibold text-[var(--color-ink)]">
                   {s.label}
                 </span>

@@ -190,13 +190,35 @@ table.cmp-table tbody tr:hover th {
 .card {
   border: 1px solid var(--color-border);
   border-radius: var(--radius-card);
-  background: var(--color-white);
+  background: var(--color-page);
   padding: 1rem 1.125rem;
-  transition: border-color 180ms ease;
+  transition: border-color 180ms ease, background-color 180ms ease;
 }
 
 .card:hover {
   border-color: var(--color-border-strong);
+}
+
+.card-interactive:hover {
+  border-color: var(--color-action);
+  background: var(--color-white);
+}
+
+.card-interactive:hover .font-semibold {
+  color: var(--color-action);
+}
+
+.hero-panel {
+  background: var(--color-tint);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-card);
+  padding: 1.5rem 1.5rem 1.25rem;
+}
+
+@media (min-width: 640px) {
+  .hero-panel {
+    padding: 1.75rem 1.75rem 1.35rem;
+  }
 }
 
 .verified {

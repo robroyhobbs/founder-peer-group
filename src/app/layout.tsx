@@ -21,6 +21,10 @@ export const metadata: Metadata = {
   description:
     "Independent, data-driven comparisons of founder and CEO peer groups. Costs, requirements, and stage fit from verified public sources.",
   metadataBase: new URL("https://founderpeergroups.com"),
+  icons: {
+    icon: [{ url: "/icon.png", type: "image/png" }],
+    apple: [{ url: "/icon.png", type: "image/png" }],
+  },
   robots: {
     index: true,
     follow: true,

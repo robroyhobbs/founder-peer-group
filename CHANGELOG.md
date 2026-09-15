@@ -2,6 +2,10 @@
 
 ## 2026-09-15
 
+- Brand polish: header mark + text lockup (no FN logo), favicon via `/icon.png`, hero soft `#F1F5F9` panel with mark accent, elevated cards with interactive hover, footer mark + disclosure.
+
+## 2026-09-15
+
 - SEO: site-wide + per-page Open Graph / Twitter cards, canonical URLs (trailing slash) via `src/lib/seo.ts`; layout `metadataBase`, robots index/follow, googleBot-friendly defaults; tightened home OG.
 - AEO: added `public/llms.txt` (purpose, key URLs, verified-sources note). Skipped `humans.txt`.
 - JsonLd audit: Organization (profiles), ItemList (best), Dataset (data), FAQPage (compare) retained; no schema breakage.
