@@ -38,7 +38,7 @@ export default function MethodologyPage() {
         <p className="mt-3 leading-relaxed">
           Stage pages use ARR bands labeled in search language: pre-seed and
           seed (under $2M), Series A ($2M to $10M), growth ($10M to $50M), late
-          stage ($50M+). If a group has an empty stage_fit list, pages say the
+          stage ($50M+). If a group has no stage-fit tags, pages say the
           group is not framed by VC stage.
         </p>
       </section>
@@ -49,14 +49,14 @@ export default function MethodologyPage() {
           <Link href="/best/series-a/" className="link-quiet">
             Best-for-stage
           </Link>{" "}
-          pages rank groups whose <code>stage_fit</code> includes that band,
-          with mild tie-breaks for venture_specific on earlier stages and for
+          pages rank groups whose stage fit includes that band,
+          with mild tie-breaks for venture-specific flags on earlier stages and for
           published cost transparency. Situation pages (first-time founder,
           solo founder, just raised, considering an exit, venture-backed, women
-          founders and leaders) use the same dataset. Scores read only yaml
-          fields such as stage_fit, venture_specific, facilitation, structure,
-          and verbatim text in best_for, not_for, revenue_floor, and
-          other_requirements. Reasons on the page cite those fields. Rankings
+          founders and leaders) use the same dataset. Scores read only dataset
+          fields such as stage fit, venture-specific, facilitation, structure,
+          and verbatim text in best-for, not-for, revenue floor, and
+          other requirements. Reasons on the page cite those fields. Rankings
           are deterministic templates, not editorial reviews.
         </p>
         <p className="mt-3 leading-relaxed">

@@ -36,3 +36,5 @@
 - Visual polish: Plus Jakarta Sans (400–700), Brand Book M2 color tokens (navy #01052A, action #0072BA), research-desk tables, sentence-case UI. Independent reference look (no FN logo lockup).
 
 - QA polish: readable source labels, sticky field column, core fit-snapshot table on profiles, denser ranking cost cells (2026-09-15).
+
+- Hide snake_case field names from user-facing copy (stage fit, not stage_fit).
