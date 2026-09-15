@@ -2,6 +2,16 @@
 
 ## 2026-09-15
 
+- SEO: site-wide + per-page Open Graph / Twitter cards, canonical URLs (trailing slash) via `src/lib/seo.ts`; layout `metadataBase`, robots index/follow, googleBot-friendly defaults; tightened home OG.
+- AEO: added `public/llms.txt` (purpose, key URLs, verified-sources note). Skipped `humans.txt`.
+- JsonLd audit: Organization (profiles), ItemList (best), Dataset (data), FAQPage (compare) retained; no schema breakage.
+- Security: `vercel.json` security headers (HSTS, nosniff, DENY frames, referrer, permissions-policy, CSP for self + optional GA4; next/font self-hosts).
+- Ops: README Search Console + GA4 checklist, deploy loop, HTTPS/custom-domain notes; `docs/UPDATE-CADENCE.md` for Peer Groups bot daily/weekly/monthly.
+- Confirmed no secrets in repo (`.env.example` only).
+
+
+## 2026-09-15
+
 - Added six best-for-situation pages under `/best/{situation-slug}` (shared route with stage pages): first-time-founder, solo-founder, just-raised, considering-exit, venture-backed, women-founders-leaders. Rankings and reasons grounded in groups.yaml fields only.
 - Home links situations; sitemap includes situation URLs; methodology expanded with best-for ranking rules.
 - Renamed dynamic segment `best/[stage]` to `best/[slug]` so stage and situation share one template.

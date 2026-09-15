@@ -1,14 +1,16 @@
 import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/seo";
 import { JsonLd } from "@/components/JsonLd";
 import { LastVerified } from "@/components/LastVerified";
 import { SortableDataTable } from "@/components/SortableDataTable";
 import { getGroups, stageFitSummary } from "@/lib/data";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: "Dataset",
   description:
     "Full founder peer group dataset as a sortable table, with CSV download.",
-};
+  path: "/data/",
+});
 
 export default function DataPage() {
   const groups = [...getGroups()].sort((a, b) => a.slug.localeCompare(b.slug));

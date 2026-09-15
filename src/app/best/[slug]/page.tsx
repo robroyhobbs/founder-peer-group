@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/seo";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { RankingTable } from "@/components/ComparisonTable";
@@ -39,17 +40,19 @@ export async function generateMetadata({
   const { slug } = await params;
   const stage = getStage(slug);
   if (stage) {
-    return {
+    return pageMetadata({
       title: `Best peer group for ${stage.label.toLowerCase()} founders (2026)`,
       description: `Ranked founder peer groups for ${stage.label} (${stage.arrBand}), from verified public data.`,
-    };
+      path: `/best/${stage.slug}/`,
+    });
   }
   const situation = getSituation(slug);
   if (situation) {
-    return {
+    return pageMetadata({
       title: `Best peer group for ${situation.titlePhrase} (2026)`,
       description: `Ranked founder peer groups for ${situation.titlePhrase}, from verified public data.`,
-    };
+      path: `/best/${situation.slug}/`,
+    });
   }
   return { title: "Best peer groups" };
 }

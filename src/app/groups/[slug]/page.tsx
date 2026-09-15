@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/seo";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ComparisonTable } from "@/components/ComparisonTable";
@@ -27,10 +28,13 @@ export async function generateMetadata({
   const { slug } = await params;
   const g = getGroup(slug);
   if (!g) return { title: "Group not found" };
-  return {
-    title: `${g.name}: cost, requirements, and fit (2026)`,
-    description: profileSummary(g).slice(0, 160),
-  };
+  const title = `${g.name}: cost, requirements, and fit (2026)`;
+  const description = profileSummary(g).slice(0, 160);
+  return pageMetadata({
+    title,
+    description,
+    path: `/groups/${g.slug}/`,
+  });
 }
 
 export default async function GroupProfilePage({

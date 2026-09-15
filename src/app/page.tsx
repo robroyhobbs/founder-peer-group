@@ -1,6 +1,9 @@
 import Link from "next/link";
+import { homeMetadata } from "@/lib/seo";
 import { getAllPairs, getGroups } from "@/lib/data";
 import { SITUATIONS, STAGES } from "@/lib/types";
+
+export const metadata = homeMetadata();
 
 export default function HomePage() {
   const groups = getGroups();

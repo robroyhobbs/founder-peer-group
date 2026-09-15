@@ -1,12 +1,14 @@
 import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/seo";
 import Link from "next/link";
 import { LastVerified } from "@/components/LastVerified";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: "Methodology",
   description:
     "How founderpeergroups.com evaluates peer groups, sources data, ranks best-for pages, and discloses FounderNexus involvement.",
-};
+  path: "/methodology/",
+});
 
 export default function MethodologyPage() {
   return (

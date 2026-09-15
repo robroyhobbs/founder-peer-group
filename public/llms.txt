@@ -1,0 +1,41 @@
+# Founder peer groups
+
+> Independent, factual comparison site for founder and CEO peer groups.
+> Costs, requirements, and stage fit from verified public sources.
+> Prices are never estimated. Every claim traces to the dataset with sources.
+
+Site: https://founderpeergroups.com/
+Maintainer disclosure: https://founderpeergroups.com/methodology/
+
+## Key pages
+
+- Methodology (sourcing, ranking rules, FounderNexus disclosure): https://founderpeergroups.com/methodology/
+- Full dataset (sortable table + CSV): https://founderpeergroups.com/data/
+- CSV download: https://founderpeergroups.com/groups.csv
+
+## Best for stage
+
+- Pre-seed and seed: https://founderpeergroups.com/best/pre-seed-seed/
+- Series A: https://founderpeergroups.com/best/series-a/
+- Growth: https://founderpeergroups.com/best/growth/
+- Late stage: https://founderpeergroups.com/best/late-stage/
+
+## Best for situation
+
+- First-time founder: https://founderpeergroups.com/best/first-time-founder/
+- Solo founder: https://founderpeergroups.com/best/solo-founder/
+- Just raised: https://founderpeergroups.com/best/just-raised/
+- Considering an exit: https://founderpeergroups.com/best/considering-exit/
+- Venture-backed: https://founderpeergroups.com/best/venture-backed/
+- Women founders and leaders: https://founderpeergroups.com/best/women-founders-leaders/
+
+## Other page types
+
+- Group profiles: https://founderpeergroups.com/groups/{slug}/
+- Pairwise compare: https://founderpeergroups.com/compare/{a}-vs-{b}/
+- Alternatives: https://founderpeergroups.com/alternatives/{slug}/
+
+## Data quality
+
+Fields come from each group's own site or official documents linked as sources.
+`last_verified` dates appear on content pages. Target re-verification every 30 days.

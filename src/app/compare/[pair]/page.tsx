@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/seo";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ComparisonTable } from "@/components/ComparisonTable";
@@ -25,10 +26,11 @@ export async function generateMetadata({
   const a = getGroup(parsed.aSlug);
   const b = getGroup(parsed.bSlug);
   if (!a || !b) return { title: "Comparison" };
-  return {
+  return pageMetadata({
     title: `${a.name} vs ${b.name}: cost, requirements, and fit by stage (2026)`,
     description: pairFraming(a, b).slice(0, 160),
-  };
+    path: `/compare/${pair}/`,
+  });
 }
 
 export default async function ComparePage({

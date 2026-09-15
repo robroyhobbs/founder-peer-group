@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/seo";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ComparisonTable, RankingTable } from "@/components/ComparisonTable";
@@ -24,10 +25,11 @@ export async function generateMetadata({
   const { slug } = await params;
   const g = getGroup(slug);
   if (!g) return { title: "Alternatives" };
-  return {
+  return pageMetadata({
     title: `Alternatives to ${g.name} (2026)`,
     description: alternativesIntro(g).slice(0, 160),
-  };
+    path: `/alternatives/${g.slug}/`,
+  });
 }
 
 export default async function AlternativesPage({
