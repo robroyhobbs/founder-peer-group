@@ -1,6 +1,6 @@
 import type { MetadataRoute } from "next";
 import { getAllPairs, getGroups } from "@/lib/data";
-import { SITUATIONS, STAGES } from "@/lib/types";
+import { SITUATIONS, STAGE_ALIASES, STAGES } from "@/lib/types";
 
 const BASE = "https://founderpeergroups.com";
 
@@ -52,6 +52,15 @@ export default function sitemap(): MetadataRoute.Sitemap {
   }
 
   for (const s of STAGES) {
+    entries.push({
+      url: `${BASE}/best/${s.slug}/`,
+      lastModified: now,
+      changeFrequency: "monthly",
+      priority: 0.9,
+    });
+  }
+
+  for (const s of STAGE_ALIASES) {
     entries.push({
       url: `${BASE}/best/${s.slug}/`,
       lastModified: now,

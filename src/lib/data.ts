@@ -11,7 +11,7 @@ import type {
   StageSlug,
   Structure,
 } from "./types";
-import { STAGES, SITUATIONS } from "./types";
+import { STAGES, STAGE_ALIASES, SITUATIONS } from "./types";
 
 /** Written by scripts/fetch-groups.mjs at build. The repo holds no group data of its own. */
 const DATA_PATH = path.join(process.cwd(), "data", ".fetched-groups.yaml");
@@ -182,6 +182,10 @@ export function getGroup(slug: string): Group | undefined {
 
 export function getStage(slug: string) {
   return STAGES.find((s) => s.slug === slug);
+}
+
+export function getStageAlias(slug: string) {
+  return STAGE_ALIASES.find((s) => s.slug === slug);
 }
 
 export function groupsForStage(stage: StageSlug): Group[] {

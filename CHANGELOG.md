@@ -2,6 +2,11 @@
 
 ## 2026-09-15
 
+- Raise-round aliases: `/best/series-b/`, `/best/series-c/`, `/best/series-d/` reuse growth ($10M-$50M) and late-stage ($50M+) rankings. Self-canonical; home adds a quiet "By raise round" row; sitemap includes the three URLs.
+
+
+## 2026-09-15
+
 - Verdicts: when both groups fit a stage, differentiate on facilitation, annual cost, revenue floor, and group size from the row; honor `verdict_override`. Never "compare revenue requirements and format".
 - JSON-LD: Organization + FAQPage on `/groups/*`, FAQPage on `/compare/*`, ItemList on `/best/*`, Dataset on `/data`.
 - FounderNexus links: footer disclosure kept (UTM). One contextual FN link on `/best/*` only where the FN row fits that stage. All FN links use `utm_source=founderpeergroups&utm_medium=referral&utm_campaign=<page-type>&utm_content=<slug>`.

@@ -4,7 +4,7 @@ import { LastVerified } from "@/components/LastVerified";
 import { homeMetadata } from "@/lib/seo";
 import { getAllPairs, getGroups, latestVerified, stageFitSummary } from "@/lib/data";
 import { FEATURED_COMPARE_SLUGS } from "@/lib/featured";
-import { SITUATIONS, STAGES, type Group } from "@/lib/types";
+import { SITUATIONS, STAGE_ALIASES, STAGES, type Group } from "@/lib/types";
 
 export const metadata = homeMetadata();
 
@@ -86,6 +86,21 @@ export default function HomePage() {
             </li>
           ))}
         </ul>
+        <div className="mt-5">
+          <p className="text-xs font-medium uppercase tracking-wide text-[var(--color-gray)]">
+            By raise round
+          </p>
+          <p className="mt-2 text-sm text-[var(--color-muted)]">
+            {STAGE_ALIASES.map((a, i) => (
+              <span key={a.slug}>
+                {i > 0 ? <span className="text-[var(--color-gray)]"> · </span> : null}
+                <Link href={`/best/${a.slug}/`} className="link-quiet font-medium">
+                  {a.label}
+                </Link>
+              </span>
+            ))}
+          </p>
+        </div>
       </section>
 
       <section>

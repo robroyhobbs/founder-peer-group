@@ -108,6 +108,42 @@ export const STAGES: {
   },
 ];
 
+export type StageAliasSlug = "series-b" | "series-c" | "series-d";
+
+/** Raise-round URL aliases that reuse an ARR-band ranking (no separate stage_fit). */
+export const STAGE_ALIASES: {
+  slug: StageAliasSlug;
+  canonical: StageSlug;
+  label: string;
+  arrBand: string;
+  blurb: string;
+}[] = [
+  {
+    slug: "series-b",
+    canonical: "growth",
+    label: "Series B",
+    arrBand: "$10M to $50M ARR",
+    blurb:
+      "Series B founders are usually scaling org design, GTM, and capital strategy in the same band as growth-stage companies. This page ranks groups using the $10M to $50M ARR evaluation band.",
+  },
+  {
+    slug: "series-c",
+    canonical: "growth",
+    label: "Series C",
+    arrBand: "$10M to $50M ARR",
+    blurb:
+      "Series C founders typically sit in the same operating band as growth-stage companies: multi-team complexity, board rhythm, and capital strategy. This page ranks groups using the $10M to $50M ARR evaluation band.",
+  },
+  {
+    slug: "series-d",
+    canonical: "late-stage",
+    label: "Series D",
+    arrBand: "$50M+ ARR",
+    blurb:
+      "Series D and later founders often face governance, liquidity, and succession questions shared with late-stage operators. This page ranks groups using the $50M+ ARR evaluation band.",
+  },
+];
+
 export type SituationSlug =
   | "first-time-founder"
   | "solo-founder"
