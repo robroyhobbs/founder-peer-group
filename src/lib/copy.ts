@@ -164,13 +164,13 @@ export function stageNeedsCopy(stage: StageSlug): string {
   const meta = STAGES.find((s) => s.slug === stage)!;
   switch (stage) {
     case "pre-seed-seed":
-      return `At ${meta.label} (${meta.arrBand}), founders need peers who are still building the first version of the company. The useful peer group is stage-pure enough that advice matches fundraising and hiring reality. Cost must be survivable. Format can be virtual or hybrid. Heavy revenue gates usually exclude this band.`;
+      return `At ${meta.label} (${meta.arrBand}), you need peers who are still building the first version of their company. A useful peer group is stage-matched closely enough that the advice fits your fundraising and hiring reality. Cost must be survivable, and the format can be virtual or hybrid. Heavy revenue gates usually exclude this band.`;
     case "series-a":
-      return `At ${meta.label} (${meta.arrBand}), founders are installing process without losing speed. Peer rooms help with GTM, first leadership hires, and board dynamics. Groups with a meaningful revenue or funding floor start to fit. Venture-specific rooms matter more here than general CEO forums.`;
+      return `At ${meta.label} (${meta.arrBand}), you are installing process without losing speed. Peer groups help with GTM, first leadership hires, and board dynamics. Groups with a meaningful revenue or funding floor start to fit, and venture-specific groups matter more here than general CEO forums.`;
     case "growth":
-      return `At ${meta.label} (${meta.arrBand}), the job is scaling org design, capital strategy, and executive bench. Peer groups with senior operators and clear confidentiality norms are the fit. Chapter-based global networks become reachable for some. UHNW wealth clubs are usually a different need.`;
+      return `At ${meta.label} (${meta.arrBand}), your job is scaling org design, capital strategy, and the executive bench. The fit is a peer group with senior operators and clear confidentiality norms. Some founders now clear the bar for chapter-based global networks. UHNW wealth clubs usually serve a different need.`;
     case "late-stage":
-      return `At ${meta.label} (${meta.arrBand}), founders face governance, liquidity, and succession questions. Peer fit skews toward high-bar executive networks and wealth-oriented forums when capital, not ops, is the main topic. Venture-stage rooms still help if the company remains venture-paced.`;
+      return `At ${meta.label} (${meta.arrBand}), you face governance, liquidity, and succession questions. When capital is the main topic rather than operations, the fit skews toward high-bar executive networks and wealth-oriented forums. Venture-stage groups still help if the company keeps a venture pace.`;
   }
 }
 
@@ -204,7 +204,7 @@ export function profileFaqs(g: Group): { q: string; a: string }[] {
   return [
     {
       q: `How much does ${g.name} cost?`,
-      a: `${g.name}: ${g.annual_cost.text} (verified ${g.annual_cost.date}). Prices are shown verbatim from public sources; nothing is estimated.`,
+      a: `${g.name}: ${g.annual_cost.text} (verified ${g.annual_cost.date}). We quote prices verbatim from public sources and do not estimate them.`,
     },
     {
       q: `What are the requirements for ${g.name}?`,
@@ -221,7 +221,7 @@ export function compareFaqs(a: Group, b: Group): { q: string; a: string }[] {
   return [
     {
       q: `How much do ${a.name} and ${b.name} cost?`,
-      a: `${a.name}: ${a.annual_cost.text} (verified ${a.annual_cost.date}). ${b.name}: ${b.annual_cost.text} (verified ${b.annual_cost.date}). Prices are shown verbatim from public sources; nothing is estimated.`,
+      a: `${a.name}: ${a.annual_cost.text} (verified ${a.annual_cost.date}). ${b.name}: ${b.annual_cost.text} (verified ${b.annual_cost.date}). We quote prices verbatim from public sources and do not estimate them.`,
     },
     {
       q: `What are the requirements for ${a.name} vs ${b.name}?`,
@@ -233,9 +233,9 @@ export function compareFaqs(a: Group, b: Group): { q: string; a: string }[] {
         a.venture_specific && b.venture_specific
           ? `Both ${a.name} and ${b.name} are venture-specific. Compare stage fit (${stageFitSummary(a)} vs ${stageFitSummary(b)}) and format.`
           : a.venture_specific && !b.venture_specific
-            ? `${a.name} is venture-specific. ${b.name} is not. The fit is ${a.name} when you want a venture-scale room.`
+            ? `${a.name} is venture-specific. ${b.name} is not. The fit is ${a.name} when you want a venture-scale group.`
             : !a.venture_specific && b.venture_specific
-              ? `${b.name} is venture-specific. ${a.name} is not. The fit is ${b.name} when you want a venture-scale room.`
+              ? `${b.name} is venture-specific. ${a.name} is not. The fit is ${b.name} when you want a venture-scale group.`
               : `Neither ${a.name} nor ${b.name} is marked venture-specific in the dataset. Compare revenue floors and stage fit instead.`,
     },
   ];
@@ -244,7 +244,7 @@ export function compareFaqs(a: Group, b: Group): { q: string; a: string }[] {
 export function stageAskQuestions(stage: StageSlug): string[] {
   return [
     "What is the real revenue or funding floor, and is it enforced?",
-    "Are rooms stage-pure, or mixed across ARR bands?",
+    "Are groups stage-matched, or mixed across ARR bands?",
     "Is facilitation paid, peer-led, or staff-convened?",
     `Does the time commitment work at ${stageLabel(stage)} pace?`,
     "Is annual cost published before you apply?",
@@ -263,17 +263,17 @@ function fieldBlob(g: Group): string {
 export function situationNeedsCopy(situation: SituationSlug): string {
   switch (situation) {
     case "first-time-founder":
-      return `A first-time founder usually needs peers who still remember the messy early chapters: first hires, first raise, and the gap between advice from operators who have shipped and advice from people who have not. Stage purity matters more than brand. A room mixed with late-stage CEOs can be inspiring and still useless for this week's decision. Cost has to be survivable before the company has durable revenue. Application models that publish floors help you self-select. Venture-specific communities and early-stage rooms are the usual fit when the company is venture-paced. Broad CEO forums with high revenue or headcount bars are usually later. The dataset ranks groups by early stage fit, venture-specific flags, and published requirements rather than reputation.`;
+      return `As a first-time founder, you usually need peers who still remember the early chapters: first hires, first raise, and the gap between advice from operators who have shipped and advice from people who have not. Stage match matters more than brand. A group mixed with late-stage CEOs can inspire you and still not help with this week's decision. Cost has to be survivable before the company has durable revenue, and application models that publish floors let you self-select. When the company is venture-paced, venture-specific communities and early-stage groups are the usual fit. Broad CEO forums with high revenue or headcount bars usually come later. This page ranks groups by early stage fit, venture-specific flags, and published requirements rather than reputation.`;
     case "solo-founder":
-      return `A solo founder needs peer accountability that does not assume a co-founder or a deep bench. The useful group is one where confidentiality is real, the cadence is sustainable alone, and the membership bar does not hinge on headcount you do not have. Peer-led forums and curated rooms often fit better than networks built around large executive teams. Venture-specific early-stage options help when the company is institutional-backed. High headcount or multi-executive requirements in the dataset push a group down the list. Wealth clubs and UHNW forums solve a different problem. Rankings here weight early stage fit, facilitation style, and whether other requirements imply a large organization.`;
+      return `As a solo founder, you need peer accountability that does not assume a co-founder or a deep bench. A useful group keeps confidentiality, runs at a cadence you can sustain alone, and sets a membership bar that does not hinge on headcount you do not have. Peer-led forums and curated groups often fit better than networks built around large executive teams. Venture-specific early-stage options help when institutional investors back the company. High headcount or multi-executive requirements push a group down the list. Wealth clubs and UHNW forums solve a different problem. Rankings here weight early stage fit, facilitation style, and whether other requirements imply a large organization.`;
     case "just-raised":
-      return `After a raise, the job shifts from convincing capital to deploying it: hiring plan, GTM install, board rhythm, and burn discipline. Peers who have just lived that transition are more useful than general networking. Venture-specific groups and rooms that list Series A or growth stage fit are the primary filter in this dataset. Facilitated or curated formats help when the questions are operational and time-bound. Groups with no stage-fit tags or a wealth-only mandate are usually a mismatch unless the raise also created a personal capital problem. The fit is a stage-aware room that matches post-raise pace, not the largest brand.`;
+      return `After a raise, your job shifts from convincing investors to deploying their capital: hiring plan, GTM install, board rhythm, and burn discipline. Peers who went through that transition recently help more than general networking. The primary filter here is venture-specific groups and groups that list Series A or growth stage fit. Facilitated or curated formats help when the questions are operational and time-bound. Groups with no stage-fit tags or a wealth-only mandate are usually a mismatch unless the raise also created a personal capital problem. The fit is a stage-aware group that matches post-raise pace, whatever the size of its brand.`;
     case "considering-exit":
-      return `A founder considering an exit needs peers who can talk about process, timing, governance, and life after the transaction without turning the room into a deal market. Late-stage and growth stage fit matter. So do groups whose best_for or not_for language points at liquidity, legacy, wealth, or succession. Venture-stage rooms remain useful when the company is still operating at venture pace through a sale or IPO path. UHNW wealth networks appear when personal capital allocation is the main topic after or during liquidity. The dataset does not invent exit advice; it ranks on stage tags and verbatim fit fields only.`;
+      return `If you are considering an exit, you need peers who can talk about process, timing, governance, and life after the transaction without turning the group into a deal market. Late-stage and growth stage fit matter, and so do groups whose fit statements mention liquidity, legacy, wealth, or succession. Venture-stage groups stay useful when the company keeps a venture pace through a sale or IPO path. UHNW wealth networks appear when personal capital allocation is the main topic during or after liquidity. This page offers no exit advice of its own. It ranks groups on stage tags and verbatim fit fields only.`;
     case "venture-backed":
-      return `Venture-backed founders operate under institutional expectations: board governance, growth targets, and a financing calendar that lifestyle businesses do not share. The dataset marks some groups venture_specific. Those rise first. Stage_fit across pre-seed through late stage then separates rooms that stay useful as the company scales from communities that stop at the first chapter. Broader CEO forums can still help for facilitation craft or local chapter density, but they are secondary when the primary need is a venture-scale peer mix. Prices stay verbatim from sources; unpublished cost is never estimated.`;
+      return `Venture-backed founders work under institutional expectations: board governance, growth targets, and a financing calendar that lifestyle businesses do not share. The dataset marks some groups as venture-specific, and those rank first. Stage fit from pre-seed through late stage then separates groups that stay useful as the company scales from communities that stop at the first chapter. Broader CEO forums can still help with facilitation craft or local chapter density, but they come second when your main need is a venture-scale peer mix. We quote prices verbatim from sources and never estimate an unpublished cost.`;
     case "women-founders-leaders":
-      return `Women founders and senior leaders often compare peer advisory networks that name women leaders explicitly with broader executive forums that are open on title and stage. This page is Chief-aware because Chief's dataset row states a focus on senior women leaders, including Guide-led Core advisory. It stays neutral: other groups appear when stage fit, facilitation, and requirements support founder or executive peer work, including rows that note women-specific application exceptions. Early-career communities and pitch-oriented spaces fall away via not_for and requirements fields. The ranking does not claim every listed group is women-only. It shows where the public data points for this search.`;
+      return `Women founders and senior leaders often weigh peer advisory networks that name women leaders against broader executive forums that are open on title and stage. This page accounts for Chief because Chief's row in the dataset states a focus on senior women leaders, including Guide-led Core advisory. The ranking stays neutral. Other groups appear when stage fit, facilitation, and requirements support founder or executive peer work, including rows that note women-specific application exceptions. Early-career communities and pitch-oriented spaces drop out through their not-for and requirements fields. The ranking does not claim that every listed group is women-only. It shows where the public data points for this search.`;
   }
 }
 
@@ -304,7 +304,7 @@ export function scoreForSituation(situation: SituationSlug, g: Group): number {
       if (g.stage_fit.includes("series-a")) s += 3;
       if (
         g.facilitation === "peer-led" ||
-        g.structure === "curated rooms" ||
+        g.structure === "curated groups" ||
         g.structure === "peer-led forum"
       ) {
         s += 2;
@@ -322,7 +322,7 @@ export function scoreForSituation(situation: SituationSlug, g: Group): number {
       if (g.stage_fit.includes("growth")) s += 3;
       if (g.stage_fit.includes("pre-seed-seed")) s += 2;
       if (
-        g.structure === "curated rooms" ||
+        g.structure === "curated groups" ||
         g.structure === "facilitated forum"
       ) {
         s += 1;
@@ -358,7 +358,7 @@ export function scoreForSituation(situation: SituationSlug, g: Group): number {
       if (
         g.structure === "facilitated forum" ||
         g.structure === "peer-led forum" ||
-        g.structure === "curated rooms"
+        g.structure === "curated groups"
       ) {
         s += 2;
       }
@@ -404,11 +404,11 @@ export function situationReason(situation: SituationSlug, g: Group): string {
       break;
     case "just-raised":
       if (g.venture_specific) parts.push("venture-specific");
-      if (g.stage_fit.length) parts.push(`stage_fit: ${stageFitSummary(g)}`);
+      if (g.stage_fit.length) parts.push(`stage fit: ${stageFitSummary(g)}`);
       break;
     case "considering-exit":
       if (g.stage_fit.includes("late-stage") || g.stage_fit.includes("growth")) {
-        parts.push(`stage_fit: ${stageFitSummary(g)}`);
+        parts.push(`stage fit: ${stageFitSummary(g)}`);
       }
       if (/exit|legacy|wealth|liquidity|succession|UHNW/i.test(fieldBlob(g))) {
         parts.push("fit fields mention capital, legacy, or related themes");
@@ -417,16 +417,16 @@ export function situationReason(situation: SituationSlug, g: Group): string {
     case "venture-backed":
       parts.push(
         g.venture_specific
-          ? "venture_specific is true"
-          : "venture_specific is false; listed for contrast on format or stage"
+          ? "venture-specific"
+          : "not venture-specific; listed for contrast on format or stage"
       );
-      if (g.stage_fit.length) parts.push(`stage_fit: ${stageFitSummary(g)}`);
+      if (g.stage_fit.length) parts.push(`stage fit: ${stageFitSummary(g)}`);
       break;
     case "women-founders-leaders":
       if (/women/i.test(g.best_for)) {
-        parts.push("best_for names women leaders");
+        parts.push("fit statement names women leaders");
       } else if (/women/i.test(g.other_requirements.text)) {
-        parts.push("other_requirements mention women");
+        parts.push("requirements mention women");
       } else {
         parts.push(`${g.structure}; ${g.facilitation}`);
       }
@@ -442,7 +442,7 @@ export function situationAskQuestions(situation: SituationSlug): string[] {
     "this situation";
   return [
     "What is the real revenue, funding, or title floor, and is it enforced?",
-    "Are rooms stage-pure, mixed, or not framed by VC stage at all?",
+    "Are groups stage-matched, mixed, or not framed by VC stage at all?",
     "Is facilitation paid, peer-led, or staff-convened?",
     `Does the membership bar assume a team shape that does not match ${label}?`,
     "Is annual cost published before you apply?",
