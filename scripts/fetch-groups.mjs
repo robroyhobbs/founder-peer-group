@@ -11,8 +11,9 @@ import { fileURLToPath } from "url";
 
 const token = process.env.FN_CONTENT_TOKEN;
 if (!token) {
+  const env = process.env.VERCEL_ENV ? ` (missing in Vercel env "${process.env.VERCEL_ENV}"; the variable must target Production and Preview)` : "";
   console.error(
-    "FN_CONTENT_TOKEN is required. Create a fine-grained GitHub token as a foundernexus org member, resource owner foundernexus, repository fn-content only, permission contents: read."
+    `FN_CONTENT_TOKEN is required${env}. Create a fine-grained GitHub token as a foundernexus org member, resource owner foundernexus, repository fn-content only, permission contents: read.`
   );
   process.exit(1);
 }
