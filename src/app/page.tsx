@@ -44,7 +44,7 @@ export default function HomePage() {
             <h1>Founder and CEO peer groups, compared</h1>
             <p className="mt-4 text-base leading-relaxed text-[var(--color-muted)]">
               Costs, requirements, and stage fit from verified public sources. Every
-              claim traces to a field in the dataset. Prices are never estimated.
+              claim traces to a field in the dataset. We never estimate a price.
             </p>
             <p className="mt-5 text-sm leading-relaxed text-[var(--color-muted)]">
               <span className="font-medium text-[var(--color-ink)]">How to use this.</span>{" "}
