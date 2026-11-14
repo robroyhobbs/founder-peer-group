@@ -8,7 +8,7 @@ export type Format = "in-person" | "virtual" | "hybrid";
 export type Structure =
   | "facilitated forum"
   | "peer-led forum"
-  | "curated rooms"
+  | "curated groups"
   | "community platform"
   | "mastermind";
 export type Facilitation =

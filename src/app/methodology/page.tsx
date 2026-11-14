@@ -22,24 +22,24 @@ export default function MethodologyPage() {
         <p className="mt-3 leading-relaxed">
           founderpeergroups.com is an independent factual comparison site for
           founder and CEO peer groups. Every claim traces to a documented
-          evaluation field. If a fact is not documented, it does not appear.
+          evaluation field. We leave out any fact we cannot document.
         </p>
       </section>
 
       <section>
         <h2>How groups are evaluated</h2>
         <p className="mt-3 leading-relaxed">
-          Groups use the same fields: format, structure, facilitation, size,
-          stage fit, revenue or capital floor, other requirements, annual cost,
-          time commitment, geography, application model, and whether the group
-          focuses on venture-backed companies. Fit statements (best for / not
-          for) are short and tied to those fields.
+          We evaluate each group on the same fields: format, structure,
+          facilitation, size, stage fit, revenue or capital floor, other
+          requirements, annual cost, time commitment, geography, application
+          model, and whether the group focuses on venture-backed companies. Fit
+          statements (best for, not for) are short and tie back to those fields.
         </p>
         <p className="mt-3 leading-relaxed">
-          Stage pages use ARR bands labeled in search language: pre-seed and
-          seed (under $2M), Series A ($2M to $10M), growth ($10M to $50M), late
-          stage ($50M+). If a group has no stage-fit tags, pages say the
-          group is not framed by VC stage.
+          Stage pages use ARR bands named the way founders search for them:
+          pre-seed and seed (under $2M), Series A ($2M to $10M), growth ($10M
+          to $50M), and late stage ($50M+). When a group has no stage-fit tags,
+          the page says the group is not framed by VC stage.
         </p>
       </section>
 
@@ -56,14 +56,14 @@ export default function MethodologyPage() {
           founders and leaders) use the same documented fields. Scores read only
           those fields: stage fit, venture focus, facilitation, structure, and
           the published best-for and not-for statements, revenue floor, and
-          other requirements. Reasons on the page cite those fields. Rankings
-          are deterministic templates, not editorial reviews.
+          other requirements. Reasons on the page cite those fields. We generate
+          rankings with deterministic templates and write no editorial reviews.
         </p>
         <p className="mt-3 leading-relaxed">
           Each best-for page includes a short needs statement, a ranked list of
           five to seven groups, a comparison table, five questions to ask before
-          joining, and sources. Voice stays restrained: prefer &quot;the fit
-          is&quot; over &quot;we recommend.&quot;
+          joining, and sources. Pages say &quot;the fit is&quot; and avoid
+          &quot;we recommend.&quot;
         </p>
       </section>
 
@@ -71,30 +71,30 @@ export default function MethodologyPage() {
         <h2>Sourcing and prices</h2>
         <p className="mt-3 leading-relaxed">
           Cost and requirement fields come from the group&apos;s own site or an
-          official document linked in sources. Prices are rendered verbatim.
-          When the official site does not publish a number, the field is{" "}
+          official document linked in sources. We show prices verbatim. When
+          the official site does not publish a number, the field reads{" "}
           <strong className="font-semibold text-[var(--color-ink)]">
             Not published
           </strong>
-          . Nothing is estimated.
+          . We do not estimate.
         </p>
         <p className="mt-3 leading-relaxed">
-          Each group shows a verification date near the top of content pages.
-          The target cadence is re-verification every 30 days. Stale data past
-          45 days is treated as an operating defect.
+          Each content page shows its verification date near the top. We aim to
+          re-verify each group every 30 days and treat data older than 45 days
+          as an operating defect.
         </p>
       </section>
 
       <section>
         <h2>FounderNexus disclosure</h2>
         <p className="mt-3 leading-relaxed">
-          This site is maintained by the team at FounderNexus. FounderNexus is
-          one row in the comparison set, written in the same voice and structure
-          as every other group. Where the data supports FounderNexus as a fit,
+          The FounderNexus team maintains this site. FounderNexus is one row in
+          the comparison set, written in the same voice and structure as every
+          other group. Where the data supports FounderNexus as a fit,
           the page says so. Where it does not, the page points elsewhere. There
-          are no banners, popups, or sitewide FounderNexus CTAs. At most one
-          contextual outbound FounderNexus link appears per page outside the
-          FounderNexus profile.
+          are no banners, popups, or sitewide FounderNexus CTAs. Outside the
+          FounderNexus profile, a page carries at most one contextual outbound
+          FounderNexus link.
         </p>
       </section>
 
@@ -108,11 +108,11 @@ export default function MethodologyPage() {
             </dt>
             <dd className="mt-1.5 leading-relaxed text-[var(--color-muted)]">
               Alumni networks from accelerators such as Y Combinator and
-              Techstars are useful. They are not structured, confidential peer
-              advisory forums with a recurring room, clear membership bar, and
-              an explicit advisory cadence. This site compares peer groups that
-              publish that kind of product. Accelerator alumni networks are
-              excluded from the comparison tables for that reason.
+              Techstars are useful. They lack the structure of a confidential
+              peer advisory forum: a recurring group, a clear membership bar,
+              and an explicit advisory cadence. This site compares peer groups
+              that offer that format, so we leave accelerator alumni networks
+              out of the comparison tables.
             </dd>
           </div>
         </dl>
@@ -121,9 +121,9 @@ export default function MethodologyPage() {
       <section>
         <h2>Corrections</h2>
         <p className="mt-3 leading-relaxed">
-          Listed groups can request corrections. Verified updates are applied
-          and recorded. We do not argue with a group about their own published
-          pricing; we update and note the change.
+          Listed groups can request corrections. We apply and record each
+          verified update. When a group corrects its own published pricing, we
+          update the page and note the change without debate.
         </p>
       </section>
     </article>

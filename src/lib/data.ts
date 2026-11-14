@@ -30,12 +30,13 @@ const STAGE_FROM_FN: Record<string, StageSlug> = {
 const STRUCTURE_FROM_FN: Record<string, Structure> = {
   "facilitated-forum": "facilitated forum",
   "peer-led-forum": "peer-led forum",
-  "curated-rooms": "curated rooms",
+  "curated-rooms": "curated groups",
   "community-platform": "community platform",
   mastermind: "mastermind",
   "facilitated forum": "facilitated forum",
   "peer-led forum": "peer-led forum",
-  "curated rooms": "curated rooms",
+  "curated rooms": "curated groups",
+  "curated groups": "curated groups",
   "community platform": "community platform",
 };
 
